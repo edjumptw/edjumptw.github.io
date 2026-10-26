@@ -51,11 +51,8 @@ a { color: inherit; }
 .brand-sub { display: block; font-size: 12px; color: var(--text-dim); }
 .top-link { font-size: 13px; font-weight: 700; color: var(--gold-light); text-decoration: none; padding: 7px 14px; border-radius: 999px; border: 1px solid var(--border-gold); white-space: nowrap; flex-shrink: 0; }
 
-/* Tabs */
-.tabs { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin: 16px 0 14px; align-items: stretch; }
-.tab-btn { display: flex; align-items: center; justify-content: center; height: 100%; min-height: 46px; padding: 8px 10px; font: inherit; font-size: 14px; font-weight: 900; color: var(--text-dim); background: var(--bg-card); border: 1.5px solid var(--border-subtle); border-radius: 12px; cursor: pointer; text-align: center; line-height: 1.3; }
-.tab-btn[aria-selected="true"] { color: #111318; background: linear-gradient(135deg, var(--gold-light), var(--gold)); border-color: var(--gold); }
-.panel[hidden] { display: none; }
+/* Panel */
+.panel { padding-top: 16px; }
 
 /* Cards */
 .card { background: linear-gradient(165deg, #171b26 0%, #10131b 100%); border: 1px solid var(--border-gold); border-radius: 18px; padding: 22px 18px; box-shadow: var(--shadow-lg); margin-bottom: 16px; }
@@ -71,8 +68,7 @@ a { color: inherit; }
 
 .form { display: flex; flex-direction: column; gap: 10px; }
 .field label { display: block; font-size: 13.5px; font-weight: 700; color: var(--gold-light); margin-bottom: 4px; }
-.input, textarea.input { width: 100%; padding: 10px 12px; height: 44px; font: inherit; font-size: 16px; color: #fff; background: rgba(255, 255, 255, 0.06); border: 1.5px solid rgba(212, 175, 55, 0.4); border-radius: 12px; outline: none; }
-textarea.input { height: 150px; resize: vertical; line-height: 1.5; }
+.input { width: 100%; padding: 10px 12px; height: 44px; font: inherit; font-size: 16px; color: #fff; background: rgba(255, 255, 255, 0.06); border: 1.5px solid rgba(212, 175, 55, 0.4); border-radius: 12px; outline: none; }
 .input:focus { border-color: var(--gold-light); box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.2); }
 .input::placeholder { color: #7c8294; }
 .error-msg { display: none; font-size: 13.5px; font-weight: 700; color: #ff8066; background: rgba(224, 90, 43, 0.14); border: 1px solid rgba(224, 90, 43, 0.35); border-radius: 10px; padding: 8px 12px; }
@@ -108,12 +104,6 @@ textarea.input { height: 150px; resize: vertical; line-height: 1.5; }
 .confetti i { position: absolute; top: -20px; width: 9px; height: 14px; border-radius: 2px; animation: fall linear forwards; }
 @keyframes fall { to { transform: translateY(110vh) rotate(720deg); opacity: 0.8; } }
 
-/* Live host panel */
-.live-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; align-items: stretch; }
-.live-row > * { height: 100%; }
-.winner-list { list-style: none; display: grid; gap: 8px; margin-top: 12px; }
-.winner-list li { background: var(--bg-card-alt); border: 1px solid var(--border-gold); border-radius: 10px; padding: 10px 12px; font-weight: 900; color: #fff; word-break: break-all; }
-.winner-list li span { color: var(--gold-light); margin-right: 6px; }
 .footer { text-align: center; padding: 24px 14px 40px; color: var(--text-dim); font-size: 12.5px; }
 
 @media (max-width: 640px) {
@@ -122,7 +112,6 @@ textarea.input { height: 150px; resize: vertical; line-height: 1.5; }
   .topbar .top-link, .topbar .top-cta { white-space: nowrap; flex-shrink: 0; padding: 8px 12px; font-size: 13px; }
   .card { padding: 18px 14px; border-radius: 16px; }
   .prize-grid, .download-row { grid-template-columns: 1fr; }
-  .tab-btn { font-size: 12.5px; padding: 9px 6px; white-space: nowrap; }
   #spinBtn { font-size: clamp(12.5px, 3.4vw, 16px); padding: 13px 10px; white-space: nowrap; height: 48px; min-height: 48px; }
 }
 @media (prefers-reduced-motion: reduce) {
@@ -143,13 +132,8 @@ textarea.input { height: 150px; resize: vertical; line-height: 1.5; }
 </header>
 
 <main class="wrap">
-  <div class="tabs" role="tablist">
-    <button type="button" class="tab-btn" role="tab" id="tabSelf" aria-controls="panelSelf" aria-selected="true">🎰 群友即抽即開</button>
-    <button type="button" class="tab-btn" role="tab" id="tabLive" aria-controls="panelLive" aria-selected="false">🎬 執董群內公開加碼搖獎機</button>
-  </div>
-
   <!-- 群友自己當場按拉霸即抽即開 -->
-  <section class="panel" id="panelSelf" role="tabpanel" aria-labelledby="tabSelf">
+  <section class="panel" id="panelSelf">
     <div class="card" id="drawCard">
       <div style="text-align:center"><span class="badge-gold">同桌專屬・每個 Email 限抽一次</span></div>
       <h1 class="draw-title">Claude Pro 幸運拉霸<span>即抽即開・100% 人人有獎</span></h1>
@@ -214,35 +198,6 @@ textarea.input { height: 150px; resize: vertical; line-height: 1.5; }
         <a class="btn-outline-gold" href="https://edjumptw.github.io/jump-ai/" target="_blank" rel="noopener">閱讀 Grok Bot 實戰攻略</a>
       </div>
       <a class="btn-outline-gold" style="margin-top:10px" href="https://edjumptw.github.io/jump-ai/gift/?unlocked=1">打開完整乾貨包網頁（線上閱讀）</a>
-    </div>
-  </section>
-
-  <!-- 執董群內公開加碼搖獎機（錄影用） -->
-  <section class="panel" id="panelLive" role="tabpanel" aria-labelledby="tabLive" hidden>
-    <div class="card">
-      <div style="text-align:center"><span class="badge-gold">主持人模式・可錄螢幕公開搖獎</span></div>
-      <h2 class="draw-title">執董群內公開加碼搖獎機<span>名單貼上・現場轉動</span></h2>
-      <p class="lead">把參加名單（LINE 暱稱或證書編號）一行一個貼進來，按下開搖，三軸拉霸滾動 3.2 秒後停在得獎者。抽中者自動移出名單，不會重複中獎。名單只留在這台裝置，不會上傳。</p>
-      <div class="form">
-        <div class="field">
-          <label for="liveNames">參加名單（一行一位）</label>
-          <textarea id="liveNames" class="input" placeholder="高雄王老闆&#10;台南林小姐&#10;台北陳總"></textarea>
-        </div>
-        <div class="live-row">
-          <button type="button" class="btn-gold" id="liveSpinBtn">🎬 開始公開搖獎</button>
-          <button type="button" class="btn-outline-gold" id="liveResetBtn">清空得獎紀錄</button>
-        </div>
-        <div id="liveError" class="error-msg" role="alert"></div>
-      </div>
-      <div class="machine" id="liveMachine">
-        <div class="machine-head">執董加碼・公開搖獎</div>
-        <div class="reels">
-          <div class="reel"><div class="strip"></div></div>
-          <div class="reel"><div class="strip"></div></div>
-          <div class="reel"><div class="strip"></div></div>
-        </div>
-      </div>
-      <ol class="winner-list" id="winnerList"></ol>
     </div>
   </section>
 </main>
@@ -431,66 +386,6 @@ document.getElementById('drawForm').addEventListener('submit', function (e) {
     if (m) document.getElementById('drawEmail').value = m;
   } catch (e) {}
 })();
-
-/* ---------- 執董群內公開加碼搖獎機 ---------- */
-var liveMachine = document.getElementById('liveMachine');
-var LIVE_KEY = 'jump_claude_live_winners_v1';
-function liveWinners() { try { return JSON.parse(localStorage.getItem(LIVE_KEY) || '[]'); } catch (e) { return []; } }
-function renderWinners() {
-  var list = document.getElementById('winnerList');
-  list.innerHTML = '';
-  liveWinners().forEach(function (w, i) {
-    var li = document.createElement('li');
-    var s = document.createElement('span');
-    s.textContent = '第 ' + (i + 1) + ' 位';
-    li.appendChild(s);
-    li.appendChild(document.createTextNode(w));
-    list.appendChild(li);
-  });
-}
-idleReels(liveMachine, ['🎬', '👑', '🎁'], false);
-renderWinners();
-
-document.getElementById('liveSpinBtn').addEventListener('click', function () {
-  var err = document.getElementById('liveError');
-  var winners = liveWinners();
-  var seen = {};
-  var pool = document.getElementById('liveNames').value.split('\n').map(function (s) { return s.trim(); })
-    .filter(function (s) { if (!s || seen[s] || winners.indexOf(s) !== -1) return false; seen[s] = 1; return true; });
-  if (!pool.length) { err.textContent = '請先貼上參加名單（已得獎者會自動排除）。'; err.style.display = 'block'; return; }
-  err.style.display = 'none';
-  var winner = pool[randInt(pool.length)];
-  var btn = this;
-  btn.disabled = true;
-  btn.textContent = '🎬 搖獎中…';
-  spinReels(liveMachine, pool, [winner, winner, winner], true, function () {
-    winners.push(winner);
-    try { localStorage.setItem(LIVE_KEY, JSON.stringify(winners)); } catch (e) {}
-    renderWinners();
-    liveMachine.classList.add('win');
-    confetti();
-    btn.disabled = false;
-    btn.textContent = '🎬 再搖一位';
-  });
-});
-document.getElementById('liveResetBtn').addEventListener('click', function () {
-  if (!confirm('確定清空這台裝置上的得獎紀錄？')) return;
-  try { localStorage.removeItem(LIVE_KEY); } catch (e) {}
-  renderWinners();
-  liveMachine.classList.remove('win');
-  document.getElementById('liveSpinBtn').textContent = '🎬 開始公開搖獎';
-});
-
-/* ---------- Tabs ---------- */
-function selectTab(live) {
-  document.getElementById('tabSelf').setAttribute('aria-selected', String(!live));
-  document.getElementById('tabLive').setAttribute('aria-selected', String(live));
-  document.getElementById('panelSelf').hidden = live;
-  document.getElementById('panelLive').hidden = !live;
-}
-document.getElementById('tabSelf').addEventListener('click', function () { selectTab(false); });
-document.getElementById('tabLive').addEventListener('click', function () { selectTab(true); });
-if (location.hash === '#live') selectTab(true);
 </script>
 </body>
 </html>
