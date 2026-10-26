@@ -133,7 +133,7 @@ function render(D){
     tabs.append(t);panels.append(p);
   });
   main.append(h('section',null,[h('div',{class:'wrap'},[secHead('Modules','三大模組互動預覽','點選分頁切換模組，按下按鈕即可看到 AI 產出的建議。'),tabs,panels])]));
-  main.append(h('section',null,[h('div',{class:'wrap'},[secHead('AI Assistant',D.chat.name+'即時問答','老闆用一句話問，AI 直接回報重點與下一步。'),renderChat(D.chat)])]));
+  
   app.append(main);
   renderCTA(app,D.id);
   app.append(h('footer',null,[h('div',{class:'wrap'},['建橋雲智｜陳執董（Jump）企業 AI 戰情室示範　本頁為互動預覽，所有數字皆為模擬示意，不代表貴公司實際營運資料。'])]));

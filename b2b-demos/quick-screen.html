@@ -1,1 +1,81 @@
-<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"><meta http-equiv="refresh" content="0;url=https://edjumptw.github.io/jump-ai/b2b-demos/quick-screen.html"><link rel="canonical" href="https://edjumptw.github.io/jump-ai/b2b-demos/quick-screen.html"><script>location.replace("https://edjumptw.github.io/jump-ai/b2b-demos/quick-screen.html"+location.search+location.hash)</script></head><body><a href="https://edjumptw.github.io/jump-ai/b2b-demos/quick-screen.html">前往新網址</a></body></html>
+<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#0b0b0c">
+<title>免費補助快篩表單｜企業 AI 導入與小人提內訓補助｜建橋雲智・陳執董 Jump</title>
+<meta name="description" content="3 分鐘填寫，快速判斷貴公司是否適合申請小型企業人力提升計畫（小人提）AI 內訓補助，並預約 Podcast 專訪與企業 AI 團隊代建置諮詢。">
+<link rel="stylesheet" href="assets/demo.css"><link rel="canonical" href="https://edjumptw.github.io/jump-ai/b2b-demos/quick-screen.html"><meta property="og:url" content="https://edjumptw.github.io/jump-ai/b2b-demos/quick-screen.html"></head><body>
+<div class="top"><div class="wrap"><span class="brand">建橋雲智｜企業 AI 戰情室</span><a class="back" href="index.html">全部示範</a></div></div>
+<div id="app">
+<header class="hero"><div class="wrap">
+<span class="badge">Free Quick Screen</span>
+<h1>免費補助快篩表單</h1>
+<p class="sub">3 分鐘填寫，先知道能不能用政府補助導入 AI</p>
+<p class="lead">填完後系統會即時產出初步快篩結果與摘要，請複製摘要傳到 LINE，由陳執董（Jump）團隊一對一協助確認補助資格、Podcast 專訪檔期與代建置方案。</p>
+</div></header>
+<main><section><div class="wrap">
+<form id="f" class="card" novalidate>
+<div class="form">
+<label>公司名稱（必填）<input name="公司名稱" required autocomplete="organization"></label>
+<label>聯絡人姓名（必填）<input name="聯絡人" required autocomplete="name"></label>
+<label>職稱<input name="職稱" autocomplete="organization-title"></label>
+<label>手機（必填）<input name="手機" required inputmode="tel" autocomplete="tel"></label>
+<label>LINE ID<input name="LINE ID"></label>
+<label>產業類別<select name="產業類別"><option>零售與連鎖門市</option><option>營造與工程</option><option>貿易與供應鏈</option><option>醫療保健與健康管理</option><option>資訊與數位服務</option><option>餐飲</option><option>其他</option></select></label>
+<label>就業保險投保員工人數（必填）<select name="投保人數" required><option value="">請選擇</option><option>1–9 人</option><option>10–29 人</option><option>30–50 人</option><option>51–199 人</option><option>200 人以上</option></select></label>
+<label>近一年是否申請過政府訓練補助<select name="近一年補助"><option>沒有</option><option>有，小人提</option><option>有，其他計畫</option><option>不清楚</option></select></label>
+<fieldset class="full" style="border:0;padding:0;margin:0;min-width:0"><legend style="color:var(--muted);font-size:14px;padding:0;margin-bottom:6px">最想先用 AI 處理的流程（可複選）</legend>
+<div class="checks">
+<label><input type="checkbox" name="想導入流程" value="進銷存與庫存">進銷存與庫存</label>
+<label><input type="checkbox" name="想導入流程" value="報價與訂單">報價與訂單</label>
+<label><input type="checkbox" name="想導入流程" value="客戶管理與追蹤">客戶管理與追蹤</label>
+<label><input type="checkbox" name="想導入流程" value="對帳與催款">對帳與催款</label>
+<label><input type="checkbox" name="想導入流程" value="行銷文案與短影音">行銷文案與短影音</label>
+<label><input type="checkbox" name="想導入流程" value="標案與補助資訊">標案與補助資訊</label>
+</div></fieldset>
+<label>有興趣的方案<select name="有興趣方案"><option>先了解補助資格</option><option>Podcast 錄音室專訪</option><option>代建置輕量版（定價 NT$30,000）</option><option>代建置旗艦版（定價 NT$58,000）</option><option>代建置陪跑版（定價 NT$88,000）</option></select></label>
+<label>希望聯繫時段<select name="聯繫時段"><option>平日上午</option><option>平日下午</option><option>平日晚上</option><option>週末</option></select></label>
+<label class="full">補充說明<input name="補充說明"></label>
+<div class="full note">個人資料告知：蒐集者為建橋雲智・陳執董（Jump）團隊，目的為補助資格初步評估、方案說明與聯繫；資料類別為上列欄位；利用期間至服務諮詢結束後一年；您可隨時透過官方 LINE @jvs3260l 請求查詢、更正或刪除。本頁不會自動上傳資料，僅於您的瀏覽器產生摘要。</div>
+<label class="consent full"><input type="checkbox" id="agree" required><span>我已閱讀並同意上述個人資料告知事項（必填）</span></label>
+</div>
+<p id="err" class="note" role="alert" style="color:var(--bad)"></p>
+<div class="toolbar"><button class="btn" type="submit">產生快篩結果</button></div>
+</form>
+<div id="res" class="card gold hidden" style="margin-top:20px" aria-live="polite">
+<h2>初步快篩結果</h2>
+<p id="verdict" style="margin:10px 0 14px;color:var(--gold2)"></p>
+<pre class="sum" id="sum"></pre>
+<div class="cta-actions">
+<button class="btn" type="button" id="copy">複製摘要</button>
+<a class="btn ghost" href="https://line.me/R/ti/p/%40jvs3260l" target="_blank" rel="noopener">開啟官方 LINE 傳送摘要</a>
+</div>
+<p class="note" id="copied"></p>
+<p class="note">快篩結果僅供初步參考，補助資格、比例與金額以勞動部勞動力發展署當年度公告及核定結果為準。涉及金錢、分潤、授權一律留存書面確認。</p>
+</div>
+</div></section></main>
+</div>
+<script src="assets/demo.js"></script>
+<script>
+(function(){
+var f=document.getElementById('f'),from=new URLSearchParams(location.search).get('from')||'direct';
+f.addEventListener('submit',function(e){
+  e.preventDefault();
+  var err=document.getElementById('err');err.textContent='';
+  var miss=Array.prototype.filter.call(f.querySelectorAll('[required]'),function(x){return x.type==='checkbox'?!x.checked:!x.value.trim()});
+  if(miss.length){err.textContent='請完成所有必填欄位並勾選個人資料同意。';miss[0].focus();return}
+  var d=new FormData(f),lines=['企業 AI 補助快篩｜來源：'+from];
+  ['公司名稱','聯絡人','職稱','手機','LINE ID','產業類別','投保人數','近一年補助'].forEach(function(k){lines.push(k+'：'+(d.get(k)||''))});
+  lines.push('想導入流程：'+(d.getAll('想導入流程').join('、')||'未選'));
+  ['有興趣方案','聯繫時段','補充說明'].forEach(function(k){lines.push(k+'：'+(d.get(k)||''))});
+  var n=d.get('投保人數'),ok=['1–9 人','10–29 人','30–50 人'].indexOf(n)>-1;
+  document.getElementById('verdict').textContent=ok?'初步符合「小型企業人力提升計畫」投保人數 50 人以下條件，可規劃員工 AI 內訓補助（年度上限 NT$100,000，以公告核定為準）。':'投保人數超過 50 人，不適用小人提，團隊將協助評估其他訓練補助方案。';
+  lines.push('初步快篩：'+(ok?'符合小人提投保人數條件':'需評估其他補助方案'));
+  document.getElementById('sum').textContent=lines.join('\n');
+  var r=document.getElementById('res');r.classList.remove('hidden');r.scrollIntoView({behavior:'smooth'});
+});
+document.getElementById('copy').addEventListener('click',function(){
+  var t=document.getElementById('sum').textContent,c=document.getElementById('copied');
+  navigator.clipboard.writeText(t).then(function(){c.textContent='已複製，請貼到 LINE 傳送給我們。'},function(){c.textContent='無法自動複製，請長按摘要文字手動複製。'});
+});
+})();
+B2B.renderCTA(document.getElementById('app'),'quick-screen');
+</script>
+</body></html>

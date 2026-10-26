@@ -1,1 +1,36 @@
-<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"><meta http-equiv="refresh" content="0;url=https://edjumptw.github.io/jump-ai/b2b-demos/cheng-weifu.html"><link rel="canonical" href="https://edjumptw.github.io/jump-ai/b2b-demos/cheng-weifu.html"><script>location.replace("https://edjumptw.github.io/jump-ai/b2b-demos/cheng-weifu.html"+location.search+location.hash)</script></head><body><a href="https://edjumptw.github.io/jump-ai/b2b-demos/cheng-weifu.html">前往新網址</a></body></html>
+<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#0b0b0c">
+<title>B2B 專案服務業專屬｜B2B 專案進度監控＋自動對帳催款＋企業 AI 戰情室</title>
+<meta name="description" content="B2B 專案進度監控、自動對帳催款與企業 AI 戰情室互動預覽。">
+<meta property="og:title" content="B2B 專案服務業專屬｜B2B 專案與收款 AI 戰情室"><meta property="og:description" content="B2B 專案進度監控、自動對帳催款與企業 AI 戰情室互動預覽。">
+<link rel="stylesheet" href="assets/demo.css"><link rel="canonical" href="https://edjumptw.github.io/jump-ai/b2b-demos/cheng-weifu.html"><meta property="og:url" content="https://edjumptw.github.io/jump-ai/b2b-demos/cheng-weifu.html"></head><body>
+<div class="top"><div class="wrap"><span class="brand">建橋雲智｜企業 AI 戰情室</span><a class="back" href="index.html">全部示範</a></div></div>
+<div id="app"></div>
+<noscript><p class="wrap">此互動預覽需要 JavaScript，請改用手機或電腦瀏覽器開啟。</p></noscript>
+<script>
+window.DEMO={
+id:'cheng-weifu',
+badge:'Demo 5｜38 位企業主 Top 5',
+person:'B2B 專案與資訊服務業｜專屬 AI 戰情室',
+title:'B2B 專案進度監控 ＋ 自動對帳催款 ＋ 企業 AI 戰情室',
+lead:'專案做完卻收不到錢，是 B2B 服務業最常見的現金流黑洞。AI 自動追蹤每個專案里程碑、比對銀行入帳與發票，到期前主動提醒、逾期自動產生禮貌催款訊息。',
+kpis:[['進行中專案','12 件','3 件里程碑落後'],['本月應收帳款','NT$2,860,000','已收 NT$1,940,000'],['逾期未收','NT$420,000','2 家客戶逾期超過 30 天'],['自動對帳準確率','99.2%','每日自動比對銀行入帳']],
+modules:[
+{tab:'專案進度監控',heading:'B2B 專案里程碑監控',desc:'整合專案管理工具與工時紀錄，自動計算進度並預警延誤風險。',
+ filter:{label:'負責 PM',col:1},num:[2,3],
+ cols:['專案','負責 PM','預定進度','實際進度','下個里程碑','狀態'],
+ rows:[['A 公司官網改版','PM 甲','75%','78%','11/01 驗收','正常'],['B 公司 CRM 導入','PM 乙','60%','48%','10/30 測試','落後'],['C 公司活動系統','PM 甲','40%','41%','11/08 上線','正常'],['D 公司 App 維護','PM 丙','90%','90%','11/15 月結','正常'],['E 公司資料串接','PM 乙','55%','46%','11/03 交付','落後'],['F 公司電商建置','PM 丙','30%','26%','11/12 設計確認','注意']],
+ action:{label:'請 AI 評估延誤風險',title:'AI 延誤風險評估',lines:['B 公司 CRM 導入落後 12%，主因客戶端資料未提供，建議今日發正式提醒並調整驗收日。','E 公司資料串接落後 9%，建議由 PM 丙支援 2 天。','PM 乙同時負責 2 個落後專案，建議重新分配工作量。']}},
+{tab:'自動對帳催款',heading:'應收帳款自動對帳與催款',desc:'每日比對銀行入帳、發票與合約付款條件，自動標示到期與逾期款項。',
+ num:[2,3],
+ cols:['客戶','發票號碼','金額','逾期天數','催款動作','狀態'],
+ rows:[['A 公司','AB-1001','NT$380,000','0','無需催款','已收款'],['B 公司','AB-1002','NT$260,000','35','第二次提醒','逾期'],['C 公司','AB-1003','NT$420,000','0','到期前 3 天提醒','即將到期'],['E 公司','AB-1004','NT$160,000','42','主管電話聯繫','逾期'],['F 公司','AB-1005','NT$520,000','0','無需催款','已收款']],
+ action:{label:'請 AI 寫催款訊息',title:'AI 催款訊息草稿（禮貌版）',lines:['B 公司窗口您好：發票 AB-1002 金額 NT$260,000 已逾付款期限，想跟您確認是否已安排付款，如需補寄文件請告訴我。','E 公司已逾期 42 天，建議由主管親自電話聯繫，並確認是否有驗收爭議。','C 公司款項將於 3 天後到期，已排程自動提醒。']}},
+{tab:'現金流戰情',heading:'未來 8 週現金流預估',desc:'依合約付款條件與歷史付款習慣，自動預估每週現金流入。',
+ num:[1,2,3],
+ cols:['週次','預估入帳','預估支出','淨現金流','狀態'],
+ rows:[['第 1 週','NT$680,000','NT$420,000','NT$260,000','正常'],['第 2 週','NT$320,000','NT$410,000','-NT$90,000','注意'],['第 3 週','NT$760,000','NT$430,000','NT$330,000','正常'],['第 4 週','NT$280,000','NT$450,000','-NT$170,000','警示']],
+ action:{label:'請 AI 提出現金流建議',title:'AI 現金流建議',lines:['第 4 週預估缺口 NT$170,000，建議優先收回 B、E 兩家逾期款共 NT$420,000。','新簽約專案建議改為簽約 30%、期中 40%、驗收 30% 付款條件。']}}
+]};
+</script>
+<script src="assets/demo.js"></script>
+</body></html>

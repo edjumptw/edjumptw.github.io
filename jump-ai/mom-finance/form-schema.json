@@ -15,7 +15,7 @@
   {
     "id": 1718082830,
     "title": "勞動部推出的「婦女再就業計畫」主要協助因各種因素退出勞動市場180日以上的婦女重返職場。 計畫提供三大核心獎勵措施https://www.mol.gov.tw/1607/1632/1633/89893/",
-    "description": "有資格申請問題  請洽:蔣小姐0960-686-013",
+    "description": "有資格申請問題，請洽 Jump 團隊專屬窗口（官方 LINE @jvs3260l）",
     "google_type": 8,
     "entries": []
   },
@@ -165,7 +165,7 @@
         "required": true,
         "options": [
           {
-            "value": "真光教會",
+            "value": "Jump",
             "other": false
           },
           {
@@ -173,7 +173,7 @@
             "other": false
           },
           {
-            "value": "蔣夢妮",
+            "value": "Jump",
             "other": false
           },
           {
@@ -415,7 +415,7 @@
   },
   {
     "id": 30733509,
-    "title": "填完資料後，幫我加入課程群組 https://line.me/ti/g/BsSGYH8xff",
+    "title": "補助資格諮詢與備註事項（由官方 LINE @jvs3260l 專人一對一聯繫引導）",
     "description": null,
     "google_type": 1,
     "entries": [
