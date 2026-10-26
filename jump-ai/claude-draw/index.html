@@ -117,11 +117,13 @@ textarea.input { height: 150px; resize: vertical; line-height: 1.5; }
 .footer { text-align: center; padding: 24px 14px 40px; color: var(--text-dim); font-size: 12.5px; }
 
 @media (max-width: 640px) {
-  .topbar .brand-title, .topbar .brand-sub { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 210px; }
+  .topbar .brand-sub { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 210px; }
+  .topbar .brand-title { font-size: 13.5px; max-width: none; white-space: nowrap; }
   .topbar .top-link, .topbar .top-cta { white-space: nowrap; flex-shrink: 0; padding: 8px 12px; font-size: 13px; }
   .card { padding: 18px 14px; border-radius: 16px; }
   .prize-grid, .download-row { grid-template-columns: 1fr; }
-  .tab-btn { font-size: 13px; }
+  .tab-btn { font-size: 12.5px; padding: 9px 6px; white-space: nowrap; }
+  #spinBtn { font-size: clamp(12.5px, 3.4vw, 16px); padding: 13px 10px; white-space: nowrap; height: 48px; min-height: 48px; }
 }
 @media (prefers-reduced-motion: reduce) {
   .machine.win { animation: none; }
@@ -133,7 +135,7 @@ textarea.input { height: 150px; resize: vertical; line-height: 1.5; }
 <header class="topbar">
   <div class="topbar-inner">
     <div class="brand">
-      <span class="brand-title">陳執董的商業社群｜Claude Pro 拉霸</span>
+      <span class="brand-title">陳執董的商業社群｜幸運拉霸</span>
       <span class="brand-sub">即抽即開・100% 人人有獎</span>
     </div>
     <a class="top-link top-cta" href="https://line.me/ti/g2/7qQim1WtxNfE2pEp_WWH5THJNdgmu-qiC3qByg" target="_blank" rel="noopener">加入 LINE 社群</a>
