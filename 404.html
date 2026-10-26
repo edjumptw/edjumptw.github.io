@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="zh-Hant-TW">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>頁面已搬家｜正在為你導向</title>
+<link rel="icon" type="image/png" href="https://edjumptw.github.io/jump-ai/static/favicon.png">
+<script>
+(function () {
+  // 404 智慧導流：舊路由、少了斜線、尾端夾帶中文標點（例如「/）」）都導回現行頁面，保留 ?utm 與 #hash
+  var PAGES = [
+    "/", "/jump-ai/", "/gift/", "/claude-draw/", "/grok-bot-guide/",
+    "/jump-ai/gift/", "/jump-ai/claude-draw/", "/jump-ai/grok-bot-guide/",
+    "/kma-kk/", "/kma-kk/ai/", "/kma-kk/live/", "/kma-kk/talks/", "/kma-kk/talks/1119/",
+    "/kma-kk/gift/", "/kma-kk/grok-bot-guide/", "/kma-kk/mom-finance/", "/kma-kk/mom-finance-1203/",
+    "/kma-kk/diagnosis/", "/me/", "/small-talk/", "/2026events/", "/cross-strait-map/"
+  ];
+  var ALIAS = [
+    [/^\/tma-kk-courses\//, "/kma-kk/"],
+    [/^\/(mom-finance-1203|mom-finance|talks|diagnosis|ai|live|p)\//, "/kma-kk/$1/"],
+    [/^\/kma-kk\/claude-draw\//, "/jump-ai/claude-draw/"],
+    [/^\/kma-kk\/jump-ai\//, "/jump-ai/"],
+    [/^\/(momfinance|mom_finance|mom-finance1203|momfinance1203)\//, "/kma-kk/mom-finance-1203/"],
+    [/^\/kma-kk\/(momfinance|mom_finance|mom-finance1203|momfinance1203)\//, "/kma-kk/mom-finance-1203/"],
+    [/^\/(claudedraw|claude_draw|draw|lucky-draw)\//, "/jump-ai/claude-draw/"],
+    [/^\/(gifts|jump-ai\/gifts)\//, "/jump-ai/gift/"],
+    [/^\/kma-kk\/gifts\//, "/kma-kk/gift/"],
+    [/^\/(grok|grokbot|grok-bot)\//, "/jump-ai/grok-bot-guide/"],
+    [/^\/kma-kk\/p\/[^\/]*\//, "/kma-kk/"]
+  ];
+  var raw = location.pathname, p = raw;
+  try { p = decodeURIComponent(raw); } catch (e) {}
+  p = p.replace(/[^\x21-\x7e]+.*$/, "")          // 去掉尾端中文標點、全形括號、空白
+       .replace(/[.,;:!'")\]]+$/, "")
+       .toLowerCase()
+       .replace(/\/index\.html?$/, "/")
+       .replace(/\.html?$/, "")
+       .replace(/\/{2,}/g, "/");
+  if (p.charAt(p.length - 1) !== "/") p += "/";
+  for (var i = 0; i < ALIAS.length; i++) {
+    if (ALIAS[i][0].test(p)) { p = p.replace(ALIAS[i][0], ALIAS[i][1]); break; }
+  }
+  // 找最接近的現行頁面（最長前綴）
+  var target = "/";
+  for (var j = 0; j < PAGES.length; j++) {
+    if (p.indexOf(PAGES[j]) === 0 && PAGES[j].length > target.length) target = PAGES[j];
+  }
+  window.__target = target + location.search + location.hash;
+  if (target !== raw) location.replace(window.__target);
+})();
+</script>
+<style>
+body{margin:0;min-height:100vh;display:flex;align-items:center;justify-content:center;background:#0b0d12;color:#f3f1ec;font-family:"Noto Sans TC",system-ui,-apple-system,"PingFang TC","Microsoft JhengHei",sans-serif;text-align:center;padding:24px;box-sizing:border-box}
+main{max-width:460px}
+h1{font-size:22px;color:#f0d57b;margin:0 0 12px}
+p{color:#a8adbb;line-height:1.7;margin:0 0 20px}
+nav{display:grid;gap:10px}
+a{display:block;padding:12px 16px;border:1px solid rgba(212,175,55,.35);border-radius:12px;color:#f3f1ec;text-decoration:none}
+a:hover{background:rgba(212,175,55,.12)}
+</style>
+</head>
+<body>
+<main>
+<h1>這個頁面已搬家</h1>
+<p>正在帶你前往最新頁面；如果沒有自動跳轉，請從下面選一個入口。</p>
+<nav>
+<a href="/jump-ai/">JUMP AI 一人公司 AI 團隊</a>
+<a href="/jump-ai/gift/">同桌專屬實戰乾貨包</a>
+<a href="/kma-kk/">KK 老師實戰課程報名</a>
+<a href="/kma-kk/talks/1119/">免費線上分享會</a>
+<a href="/kma-kk/mom-finance-1203/">媽媽家庭理財教養課</a>
+</nav>
+</main>
+</body>
+</html>
