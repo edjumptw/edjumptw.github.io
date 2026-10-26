@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>陳執董的商業社群｜五獎盲盒幸運拉霸・即抽即開</title>
-<meta name="description" content="陳執董的商業社群同桌專屬：輸入 LINE 暱稱、姓名與 Email，立即啟動五獎盲盒幸運拉霸，100% 有獎。頭獎限量 2 名 Claude Pro 一週免費體驗通行證，二～五獎各解鎖 1 份神級乾貨包，其餘回 LINE 社群跟同桌交換集滿。">
+<meta name="description" content="陳執董的商業社群同桌專屬：輸入稱呼與常用 Email，立即啟動五獎盲盒幸運拉霸，100% 有獎。頭獎限量 2 名 Claude Pro 一週免費體驗通行證，二～五獎各解鎖 1 份神級乾貨包，其餘回 LINE 社群跟同桌交換集滿。">
 <meta property="og:title" content="五獎盲盒幸運拉霸・即抽即開｜陳執董的商業社群">
 <meta property="og:description" content="100% 有獎：頭獎限量 2 名 Claude Pro 一週免費體驗通行證，二～五獎各解鎖 1 份神級乾貨包，回 LINE 社群跟同桌交換集滿 4 份。">
 <meta property="og:type" content="website">
@@ -136,11 +136,56 @@ a { color: inherit; }
   .topbar .top-link, .topbar .top-cta { white-space: nowrap; flex-shrink: 0; padding: 8px 12px; font-size: 13px; }
   .card { padding: 18px 14px; border-radius: 16px; }
   .prize-grid { grid-template-columns: 1fr; }
-  #spinBtn { font-size: clamp(12.5px, 3.4vw, 16px); padding: 13px 10px; white-space: nowrap; height: 48px; min-height: 48px; }
+  #spinBtn { font-size: clamp(15px, 4.2vw, 17px); padding: 13px 10px; white-space: nowrap; height: 48px; min-height: 48px; }
 }
+body.gate-locked .topbar { display: none !important; }
+
+/* ===== 五獎盲盒 v3：上方只開抽中的 1 獎、下方全圖鑑其餘上鎖 ===== */
+.bb-win { margin-top: 18px; padding: 20px 16px; border-radius: 16px; border: 1.5px solid var(--gold); background: linear-gradient(160deg, rgba(240, 213, 123, 0.14) 0%, rgba(20, 24, 33, 0.92) 100%); text-align: center; scroll-margin-top: 80px; }
+.bb-win h3 { font-size: clamp(18px, 4.8vw, 23px); font-weight: 900; color: #fff; line-height: 1.45; margin-bottom: 8px; text-wrap: balance; overflow-wrap: anywhere; }
+.bb-win > p { font-size: 14.5px; color: var(--text-dim); line-height: 1.6; margin-bottom: 6px; }
+.bb-win .badge-gold { margin-bottom: 10px; }
+.bb-win #jackpotBlock .btn-gold { display: flex; width: 100%; min-height: 52px; margin-top: 14px; }
+.win-actions { display: flex; flex-direction: column; gap: 10px; margin-top: 14px; }
+.win-actions:empty { display: none; }
+.win-actions > a { display: flex; align-items: center; justify-content: center; width: 100%; min-height: 52px; margin: 0; text-align: center; line-height: 1.4; }
+.exchange-box { scroll-margin-top: 80px; }
+.my-key { margin: 0 0 12px; font-size: 14px; line-height: 1.6; color: var(--text-light); overflow-wrap: anywhere; }
+.my-key b { display: inline-block; margin-left: 4px; padding: 2px 10px; border-radius: 8px; border: 1px dashed var(--gold-light); font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 17px; letter-spacing: 0.06em; color: var(--gold-light); user-select: all; -webkit-user-select: all; }
+.dex { margin-top: 18px; padding: 18px 14px; border-radius: 16px; border: 1px solid var(--border-gold); background: rgba(20, 24, 33, 0.88); scroll-margin-top: 80px; }
+.dex .dex-title { font-size: clamp(16px, 4.4vw, 20px); font-weight: 900; color: #fff; text-align: center; line-height: 1.5; margin-bottom: 12px; text-wrap: balance; }
+.dex .dex-grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: 10px; }
+.dex .dex-card { display: flex; flex-direction: column; gap: 10px; min-width: 0; padding: 14px 12px; border-radius: 14px; background: var(--bg-card-alt); border: 1px solid var(--border-subtle); text-align: left; scroll-margin-top: 80px; }
+.dex .dex-card .dx-tier { display: block; font-size: 12.5px; font-weight: 900; letter-spacing: 0.06em; color: var(--gold-light); margin-bottom: 4px; line-height: 1.4; }
+.dex .dex-card .dx-title { display: block; font-size: 14.5px; font-weight: 700; color: #fff; line-height: 1.55; overflow-wrap: anywhere; }
+.dex .dex-card.is-open { border: 1.5px solid var(--gold); background: linear-gradient(165deg, rgba(240, 213, 123, 0.16) 0%, var(--bg-card-alt) 70%); }
+.dex .dex-card.is-won { border-width: 2px; box-shadow: 0 0 22px rgba(212, 175, 55, 0.35); }
+.dex .dx-status { font-size: 14px; font-weight: 900; color: #5be38f; }
+.dex .dx-actions { display: flex; flex-direction: column; gap: 8px; }
+.dex .dx-actions > a { display: flex; align-items: center; justify-content: center; width: 100%; min-height: 46px; margin: 0; padding: 9px 10px; font-size: 14px; line-height: 1.4; text-align: center; letter-spacing: 0; }
+.dex .dex-card.is-locked { border: 1.5px dashed rgba(255, 255, 255, 0.22); background: rgba(0, 0, 0, 0.28); }
+.dex .dex-card.is-locked .dx-title { color: var(--text-dim); }
+.dex .dx-frost { position: relative; display: flex; flex-direction: column; gap: 7px; padding: 14px 12px; border-radius: 10px; background: rgba(255, 255, 255, 0.05); overflow: hidden; user-select: none; }
+.dex .dx-frost i { display: block; height: 9px; border-radius: 5px; background: rgba(240, 213, 123, 0.35); filter: blur(4px); }
+.dex .dx-frost i:nth-child(2) { width: 82%; }
+.dex .dx-frost i:nth-child(3) { width: 58%; }
+.dex .dx-frost span { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-size: 26px; background: rgba(11, 13, 18, 0.35); -webkit-backdrop-filter: blur(3px); backdrop-filter: blur(3px); }
+.dex .dx-lock { font-size: 13.5px; line-height: 1.6; color: var(--text-dim); }
+.dex .dx-lock b { color: var(--gold-light); }
+.dex .dx-unlock { display: flex; flex-direction: column; gap: 6px; margin: 0; }
+.dex .dx-label { font-size: 13px; font-weight: 700; color: var(--gold-light); line-height: 1.4; }
+.dex .dx-row { display: flex; gap: 8px; }
+.dex .dx-input { flex: 1 1 auto; min-width: 0; height: 44px; padding: 0 12px; font: inherit; font-size: 16px; color: #fff; letter-spacing: 0.04em; text-transform: uppercase; background: rgba(255, 255, 255, 0.06); border: 1.5px solid rgba(212, 175, 55, 0.4); border-radius: 10px; outline: none; }
+.dex .dx-input::placeholder { color: #7c8294; text-transform: none; letter-spacing: 0; }
+.dex .dx-input:focus { border-color: var(--gold-light); box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.2); }
+.dex .dx-btn { flex: 0 0 auto; height: 44px; padding: 0 14px; font: inherit; font-size: 14.5px; font-weight: 900; white-space: nowrap; color: #1a1406; background: linear-gradient(135deg, #f0d57b 0%, #d4af37 100%); border: 0; border-radius: 10px; cursor: pointer; }
+.dex .dx-msg { min-height: 1.2em; font-size: 13px; font-weight: 700; color: #ff9b85; line-height: 1.5; }
+.dex .dx-msg:empty { display: none; }
+.reset-btn { display: inline-flex; align-items: center; justify-content: center; margin-top: 14px; padding: 8px 14px; font: inherit; font-size: 12.5px; color: var(--text-dim); background: transparent; border: 1px solid var(--border-subtle); border-radius: 999px; cursor: pointer; }
+.reset-btn:hover, .reset-btn:focus-visible { color: var(--gold-light); border-color: var(--border-gold); }
 </style>
-<link rel="canonical" href="https://edjumptw.github.io/jump-ai/claude-draw/"><meta property="og:url" content="https://edjumptw.github.io/jump-ai/claude-draw/"></head>
-<body>
+</head>
+<body class="gate-locked">
 
 <header class="topbar">
   <div class="topbar-inner">
@@ -156,17 +201,13 @@ a { color: inherit; }
   <!-- 群友即抽即開・五獎盲盒幸運拉霸機 -->
   <section class="panel" id="panelSelf">
     <div class="card" id="drawCard">
-      <div style="text-align:center"><span class="badge-gold">同桌專屬・每個 Email 限抽一次</span></div>
+      <div style="text-align:center"><span class="badge-gold">同桌專屬・每台裝置限抽 1 次</span></div>
       <h1 class="draw-title">五獎盲盒幸運拉霸機<span>群友即抽即開・100% 有獎</span></h1>
-      <p class="lead">輸入 LINE 社群暱稱、稱呼與常用 Email，按下拉霸 3 秒開獎，當場解鎖你抽中的那 1 份獎品。想集滿另外幾份神級乾貨包？回 LINE 社群跟同桌交換！</p>
+      <p class="lead">輸入稱呼＋常用 Email，按下拉霸 3 秒開獎，只解鎖您抽中的那 1 獎；其餘盲盒回 LINE 社群跟同桌互換專屬解鎖碼，一次換 1 項。</p>
 
       <form id="drawForm" class="form" novalidate>
         <div class="field">
-          <label for="lineNick">LINE 社群暱稱 *</label>
-          <input id="lineNick" class="input" type="text" maxlength="40" placeholder="例如：高雄王老闆" autocomplete="nickname" required>
-        </div>
-        <div class="field">
-          <label for="realName">真實姓名／稱呼 *</label>
+          <label for="realName">您的稱呼（姓名或商務暱稱）*</label>
           <input id="realName" class="input" type="text" maxlength="40" placeholder="例如：王小明／王老闆" autocomplete="name" required>
         </div>
         <div class="field">
@@ -174,7 +215,7 @@ a { color: inherit; }
           <input id="drawEmail" class="input" type="email" maxlength="120" placeholder="例如：name@company.com" autocomplete="email" inputmode="email" required>
         </div>
         <div id="drawError" class="error-msg" role="alert"></div>
-        <button type="submit" id="spinBtn" class="btn-gold">🎰 立即抽五獎盲盒（即抽即開・100% 有獎）</button>
+        <button type="submit" id="spinBtn" class="btn-gold">🎰 立即拉霸抽五獎盲盒</button>
       </form>
 
       <div class="machine" id="selfMachine" aria-live="polite">
@@ -187,63 +228,69 @@ a { color: inherit; }
       </div>
       <div class="prize-grid" id="prizeGrid"></div>
 
-      <p class="note-small">每個 Email／每台裝置限抽一次，只解鎖你抽中的 1 獎，結果同步登記至後台名單。頭獎以後台登記時間前 2 名、且證書編號與 Email 相符者為準；同一 Email 重複參加不另計。</p>
+      <p class="note-small">每台裝置限抽 1 次，只解鎖你抽中的 1 獎，結果同步登記至後台名單。頭獎以後台登記時間前 2 名、且證書編號與 Email 相符者為準；同一 Email 重複參加不另計。</p>
     </div>
 
     <!-- 開獎結果：只解鎖抽中的 1 獎 -->
     <div class="card result" id="resultCard">
-      <span class="badge-gold" id="resultBadge"></span>
-      <h3 id="resultTitle"></h3>
-      <p id="resultMsg"></p>
-      <div id="jackpotBlock" style="display:none">
-        <div class="cert">
-          <div class="cert-label">CLAUDE PRO 領獎證書</div>
-          <div class="cert-code" id="certCode">CLAUDE-WIN-0000</div>
-          <div class="cert-meta" id="certMeta"></div>
+        <div class="bb-win" id="winBox">
+          <span class="badge-gold" id="winBadge"></span>
+          <h3 id="winTitle"></h3>
+          <p id="winMsg"></p>
+          <div id="jackpotBlock" style="display:none">
+            <div class="cert">
+              <div class="cert-label">CLAUDE PRO 領獎證書</div>
+              <div class="cert-code" id="certCode">CLAUDE-WIN-0000</div>
+              <div class="cert-meta" id="certMeta"></div>
+            </div>
+            <p><b style="color:#fff">領獎方式：</b>請立刻截圖本畫面，到「陳執董的商業社群」私訊小助或陳執董，附上證書編號與 Email，我們核對後會私下傳送 Claude Pro 一週體驗權限給您。</p>
+            <a class="btn-gold" href="https://line.me/ti/g2/7qQim1WtxNfE2pEp_WWH5THJNdgmu-qiC3qByg" target="_blank" rel="noopener">截圖後前往 LINE 社群私訊領獎</a>
+          </div>
+          <div class="win-actions" id="winActions"></div>
+          <div class="exchange-box" id="exchangeBox">
+            <h4>🤝 想換其他獎？複製交換暗號，去 LINE 社群找同桌一對一互換專屬解鎖碼</h4>
+            <div class="my-key" id="myKeyRow">您的專屬解鎖碼（談妥後私訊給交換的群友）：<b id="myKey"></b></div>
+            <div class="exchange-preview" id="exchangePreview"></div>
+            <div class="exchange-actions">
+              <button type="button" class="btn-gold" id="copyExchangeBtn">📋 一鍵複製我的交換暗號（去 LINE 社群找同桌換其他獎）</button>
+              <a class="btn-gold btn-line" href="https://line.me/ti/g2/7qQim1WtxNfE2pEp_WWH5THJNdgmu-qiC3qByg" target="_blank" rel="noopener">💬 打開 LINE「陳執董的商業社群」貼上交換暗號</a>
+              <button type="button" class="btn-outline-gold" id="copyKeyBtn">🔑 複製我的專屬解鎖碼（私訊給交換對象）</button>
+            </div>
+            <p class="exchange-status" id="exchangeStatus" role="status" aria-live="polite"></p>
+          </div>
         </div>
-        <p><b style="color:#fff">領獎方式：</b>請立刻截圖本畫面，到「陳執董的商業社群」私訊小助或陳執董，附上證書編號與 Email，我們核對後會私下傳送 Claude Pro 一週體驗權限給你。</p>
-        <a class="btn-gold" href="https://line.me/ti/g2/7qQim1WtxNfE2pEp_WWH5THJNdgmu-qiC3qByg" target="_blank" rel="noopener">截圖後前往 LINE 社群私訊領獎</a>
-      </div>
-      <div class="collect-grid" id="collectGrid"></div>
-    </div>
-
-    <!-- 同桌交換暗號 -->
-    <div class="exchange-box" id="exchangeBox">
-      <h4>🤝 想要湊齊另外 3 份神級乾貨包？一鍵複製『同桌交換暗號』回 LINE 社群跟群友交換！</h4>
-      <div class="exchange-preview" id="exchangePreview"></div>
-      <div class="exchange-actions">
-        <button type="button" class="btn-gold" id="copyExchangeBtn">📋 一鍵複製『同桌交換暗號』</button>
-        <a class="btn-gold btn-line" href="https://line.me/ti/g2/7qQim1WtxNfE2pEp_WWH5THJNdgmu-qiC3qByg" target="_blank" rel="noopener">💬 一鍵打開 LINE 陳執董的商業社群貼上交換</a>
-        <button type="button" class="btn-outline-gold" id="copyShareBtn">🔗 複製我的乾貨包分享連結（交換時貼給同桌）</button>
-      </div>
-      <p class="exchange-status" id="exchangeStatus" role="status" aria-live="polite"></p>
+        <div class="dex" id="dexBox">
+          <h3 class="dex-title" id="dexTitle"></h3>
+          <div class="dex-grid" id="dexGrid"></div>
+        </div>
     </div>
   </section>
 </main>
 
-<footer class="footer">BNC 建橋雲智商務社群｜陳執董的商業社群（同桌專屬智庫）</footer>
+<footer class="footer">BNC 建橋雲智商務社群｜陳執董的商業社群（同桌專屬智庫）<br><button type="button" class="reset-btn" id="resetBtn">🔄 清除紀錄重新測試拉霸（測試模式）</button></footer>
 
 <script>
-var GIFT_BASE = 'https://edjumptw.github.io/jump-ai/gift/';
-/* ===== 五獎盲盒分級制（claude-draw 與 gift 頁共用，同網域共用 localStorage：每個 Email／裝置限抽一次） ===== */
+/* ===== 五獎盲盒 v3（claude-draw 與 gift 頁共用同一份邏輯與 localStorage：每台裝置抽 1 次、只解鎖抽中的 1 獎） ===== */
 var ENDPOINT = 'https://script.google.com/macros/s/AKfycbxol7SFv9StP7UUvCTE4GDBrXBsGIrUtxSEAwJcCaXeDCosAFmjRZDCvNFAu04Tz_zzMw/exec';
 // 頭獎硬鎖：每開出 1 張就把 CLAUDE_PRIZE_ISSUED +1 並重新部署；達上限後前端不再開出頭獎。
 var CLAUDE_PRIZE_CAP = 2;
 var CLAUDE_PRIZE_ISSUED = 0;
 var JACKPOT_RATE = 0.04;
 var SPIN_MS = 3200;
-var STORE_KEY = 'jump_claude_draw_v1';
-var COLLECT_KEY = 'jump_blindbox_collected_v1';
+var STATE_KEY = 'jump_blindbox_v3_state';
 var LINE_URL = 'https://line.me/ti/g2/7qQim1WtxNfE2pEp_WWH5THJNdgmu-qiC3qByg';
-var LOCK_TEXT = '🔒 待回 LINE 社群與同桌交換解鎖';
-// pkg：gift 頁 ?pkg= 編號與錨點（五獎=pkg1、四獎=pkg2、三獎=pkg3、二獎=pkg4）
+var IS_GIFT = !!document.getElementById('pkgMount');
+var GIFT_BASE = IS_GIFT ? './' : 'https://edjumptw.github.io/jump-ai/gift/';
+// pkg：gift 頁 <template id="pkgTpl{pkg}"> 與錨點（五獎=pkg1、四獎=pkg2、三獎=pkg3、二獎=pkg4）
+// key：該獎專屬解鎖碼（base64），只有抽中本獎的人看得到，交換時私訊給群友。
 var TIERS = {
-  1: { label: '頭獎', icon: '🏆', sym: '👑', rate: '4%・限量 2 名', title: 'Claude Pro 一週免費體驗通行證', short: 'Claude Pro 一週體驗通行證' },
-  2: { label: '二獎', icon: '🥈', sym: '📘', rate: '24%', title: '《一人公司 AI 團隊超級個體實戰手冊》30 頁完整 PDF 旗艦版', short: '30頁一人公司AI實戰手冊 PDF', pkg: 4, anchor: 'package-four' },
-  3: { label: '三獎', icon: '🥉', sym: '🤖', rate: '24%', title: '《Grok Bot 實戰 10 步法與 56 個職位全清單＋49 個繁中 AI 模板》', short: '56個職位與49個模板', pkg: 3, anchor: 'package-three' },
-  4: { label: '四獎', icon: '🎖️', sym: '🧩', rate: '24%', title: '《一人公司 1 董秘＋4 大部門＋7 專員（12 人團隊）實戰配置清單》', short: '12人團隊配置清單', pkg: 2, anchor: 'package-two' },
-  5: { label: '五獎', icon: '🎁', sym: '🤝', rate: '24%', title: '《商務社團 3 句破冰與 72 小時跟進變現清單》', short: '商務破冰跟進清單', pkg: 1, anchor: 'package-one' }
+  1: { label: '頭獎', icon: '🏆', sym: '👑', title: 'Claude Pro 一週免費體驗通行證', short: 'Claude Pro 一週體驗通行證' },
+  2: { label: '二獎', icon: '🥈', sym: '📘', title: '《一人公司 AI 團隊超級個體實戰手冊》30 頁完整 PDF 旗艦版', short: '30頁一人公司AI實戰手冊 PDF', pkg: 4, anchor: 'package-four', key: 'Qk5DLVBERi0zNw==' },
+  3: { label: '三獎', icon: '🥉', sym: '🤖', title: '《Grok Bot 實戰 10 步法與 56 個職位全清單＋49 個繁中 AI 模板》', short: '56個職位與49個繁中模板', pkg: 3, anchor: 'package-three', key: 'Qk5DLVRQTC02NA==' },
+  4: { label: '四獎', icon: '🎖️', sym: '🧩', title: '《一人公司 1 董秘＋4 大部門＋7 專員（12 人團隊）實戰配置清單》', short: '12人團隊配置清單', pkg: 2, anchor: 'package-two', key: 'Qk5DLU9SRy0yNQ==' },
+  5: { label: '五獎', icon: '🎁', sym: '🤝', title: '《商務社團 3 句破冰與 72 小時跟進變現清單》', short: '商務破冰跟進清單', pkg: 1, anchor: 'package-one', key: 'Qk5DLU5FVC04MQ==' }
 };
+var ALL_TIERS = [1, 2, 3, 4, 5];
 var PACK_TIERS = [2, 3, 4, 5];
 var SYMBOLS = ['👑', '📘', '🤖', '🧩', '🤝', '⭐'];
 
@@ -253,10 +300,34 @@ function rand() {
   return a[0] / 4294967296;
 }
 function randInt(n) { return Math.floor(rand() * n); }
-function loadStore() {
-  try { return JSON.parse(localStorage.getItem(STORE_KEY) || 'null') || { draws: {} }; } catch (e) { return { draws: {} }; }
+function esc(s) { return String(s).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); }
+
+/* ---------- 狀態：只認 jump_blindbox_v3_state，其餘舊紀錄一律清除 ---------- */
+function purgeLegacy() {
+  try {
+    var old = [];
+    for (var i = 0; i < localStorage.length; i++) {
+      var k = localStorage.key(i);
+      if (k !== STATE_KEY) old.push(k);
+    }
+    old.forEach(function (k) { localStorage.removeItem(k); });
+  } catch (e) {}
 }
-function saveStore(s) { try { localStorage.setItem(STORE_KEY, JSON.stringify(s)); } catch (e) {} }
+function loadState() {
+  try {
+    var s = JSON.parse(localStorage.getItem(STATE_KEY) || 'null');
+    if (!s || s.v !== 3 || !s.rec || !TIERS[s.rec.tier]) return null;
+    s.unlocked = (s.unlocked || []).filter(function (t) { return ALL_TIERS.indexOf(t) >= 0; });
+    if (s.unlocked.indexOf(s.rec.tier) < 0) s.unlocked.unshift(s.rec.tier);
+    return s;
+  } catch (e) { return null; }
+}
+function saveState(s) { try { localStorage.setItem(STATE_KEY, JSON.stringify(s)); } catch (e) {} }
+function resetState() {
+  try { localStorage.removeItem(STATE_KEY); } catch (e) {}
+  location.replace(location.pathname);
+}
+
 function certCode() {
   var chars = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789', out = '';
   for (var i = 0; i < 4; i++) out += chars[randInt(chars.length)];
@@ -268,58 +339,65 @@ function drawTier() {
   if (jackpotLeft() > 0 && rand() < JACKPOT_RATE) return 1;
   return PACK_TIERS[randInt(PACK_TIERS.length)];
 }
-// 舊版紀錄（無 tier，當時一次解鎖全部乾貨包）以 0 表示「全部已解鎖」。
-function recTier(rec) { return rec ? (rec.tier || (rec.result === 'jackpot' ? 1 : 0)) : -1; }
 function tierName(t) { return TIERS[t].label + '：' + TIERS[t].title; }
-function loadCollected() {
-  try { return (JSON.parse(localStorage.getItem(COLLECT_KEY) || '[]') || []).filter(function (t) { return PACK_TIERS.indexOf(t) >= 0; }); } catch (e) { return []; }
+function tierKey(t) { return TIERS[t].key ? atob(TIERS[t].key) : ''; }
+function normCode(v) { return String(v || '').toUpperCase().replace(/[－—–_\s]/g, function (c) { return /\s/.test(c) ? '' : '-'; }); }
+function newDraw(name, email) {
+  var tier = drawTier();
+  return { v: 3, rec: { name: name, email: email, tier: tier, code: tier === 1 ? certCode() : '', at: new Date().toLocaleString('zh-TW', { hour12: false }) }, unlocked: [tier] };
 }
-function addCollected(tiers) {
-  var c = loadCollected();
-  tiers.forEach(function (t) { if (c.indexOf(t) < 0) c.push(t); });
-  try { localStorage.setItem(COLLECT_KEY, JSON.stringify(c)); } catch (e) {}
+
+/* ---------- 每一獎只對應自己的下載／閱讀按鈕（第 1 個為主按鈕） ---------- */
+function tierActions(t) {
+  var read = function (a) { return IS_GIFT ? '#' + a : GIFT_BASE + '#' + a; };
+  if (t === 1) return [{ text: '🏆 查看我的頭獎領獎證書', href: '#winBox' }];
+  if (t === 2) return [
+    { text: '📘 線上開啟 30 頁 PDF 旗艦版', href: GIFT_BASE + 'jump_super_individual_ai_team_handbook.pdf', blank: true },
+    { text: '⬇️ 下載 30 頁 PDF 旗艦版', href: GIFT_BASE + 'jump_super_individual_ai_team_handbook.pdf', download: true }
+  ];
+  if (t === 3) return [
+    { text: '🤖 線上閱讀 10 步法＋56 個職位＋49 個模板', href: read('package-three'), blank: !IS_GIFT },
+    { text: '⬇️ 下載 56 個職位全清單 (.md)', href: GIFT_BASE + 'grokbot_10steps_56roles_zh.md', download: true },
+    { text: '⬇️ 下載 49 個繁中 AI 模板 (.md)', href: GIFT_BASE + 'taiwan_sme_ai_org_templates_zh.md', download: true }
+  ];
+  if (t === 4) return [{ text: '🧩 線上閱讀 12 人團隊配置清單', href: read('package-two'), blank: !IS_GIFT }];
+  return [{ text: '🤝 線上閱讀破冰與跟進清單', href: read('package-one'), blank: !IS_GIFT }];
 }
-function ownedTiers(rec) {
-  var t = recTier(rec);
-  if (t === 0) return PACK_TIERS.slice();
-  var owned = loadCollected();
-  if (t >= 2 && owned.indexOf(t) < 0) owned.push(t);
-  return owned;
+function actionLink(a, cls, text) {
+  return '<a class="' + cls + '" href="' + a.href + '"' + (a.download ? ' download' : '') + (a.blank ? ' target="_blank" rel="noopener"' : '') + '>' + (text || a.text) + '</a>';
 }
-function wantedTiers(won, owned) {
-  return PACK_TIERS.filter(function (t) { return t !== won && owned.indexOf(t) < 0; });
+
+/* ---------- 上方：只顯示抽中的那 1 獎 ---------- */
+function renderWin(s, animate) {
+  var r = s.rec, t = r.tier, T = TIERS[t], who = r.name || '同桌';
+  document.getElementById('winBadge').textContent = T.icon + ' ' + T.label + '・恭喜中獎';
+  document.getElementById('winTitle').textContent = '🎉 恭喜您抽中：【' + tierName(t) + '】';
+  document.getElementById('winMsg').textContent = t === 1
+    ? who + '，您是限量 2 名的頭獎得主！請截圖下方證書到 LINE 社群私訊領取；其他 4 份乾貨包請複製交換暗號回社群找同桌互換解鎖碼。'
+    : who + '，您的' + T.label + '已解鎖，按下方按鈕立即開啟。其餘獎項仍是 🔒 盲盒，請複製交換暗號回 LINE 社群找同桌互換解鎖碼。';
+  var jp = document.getElementById('jackpotBlock');
+  jp.style.display = t === 1 ? 'block' : 'none';
+  if (t === 1) {
+    document.getElementById('certCode').textContent = r.code;
+    document.getElementById('certMeta').textContent = [r.name, r.email, r.at].filter(Boolean).join('｜');
+    if (animate) confetti();
+  }
+  var acts = t === 1 ? [] : tierActions(t), html = '';
+  acts.forEach(function (a, i) { html += actionLink(a, i === 0 ? 'btn-gold' : 'btn-outline-gold', i === 0 ? '📥 立即開啟／下載此獎項' : ''); });
+  document.getElementById('winActions').innerHTML = html;
+  renderExchange(s);
 }
-function exchangeText(won, owned) {
-  var want = wantedTiers(won, owned).map(function (t) { return '【' + TIERS[t].label + '：' + TIERS[t].short + '】'; });
+
+/* ---------- 交換暗號（只換 1 項：拿自己的專屬解鎖碼私訊換群友的） ---------- */
+function wantedTiers(s) { return PACK_TIERS.filter(function (t) { return s.unlocked.indexOf(t) < 0; }); }
+function exchangeText(s) {
+  var won = s.rec.tier;
+  var want = wantedTiers(s).map(function (t) { return '【' + TIERS[t].label + '：' + TIERS[t].short + '】'; });
   var list = want.length > 1 ? want.slice(0, -1).join('、') + '或' + want[want.length - 1] : want[0];
-  var head = '各位同桌好！我剛剛在拉霸機抽到【' + TIERS[won].label + '：' + TIERS[won].short + '】';
-  if (won === 1) return head + '🏆，請問群裡有哪位同桌抽到' + list + '可以分享給我嗎？我也很樂意分享 Claude Pro 實測心得跟大家交換！🙌';
-  return head + '，請問群裡有哪位同桌抽到' + list + '可以跟我交換嗎？🙌';
+  var head = '各位同桌好！我在五獎盲盒抽中【' + TIERS[won].label + '：' + TIERS[won].short + '】';
+  if (won === 1) return head + '🏆 想再解鎖一份乾貨包，請問有抽到' + list + '的同桌，願意私訊我專屬解鎖碼嗎？我也很樂意分享 Claude Pro 實測心得給你！🙌';
+  return head + '🎉 想跟抽到' + list + '的同桌一對一互換專屬解鎖碼，方便的話私訊我，我們各換 1 項！🙌';
 }
-function shareUrl(t) { return GIFT_BASE + '?pkg=' + TIERS[t].pkg + '#' + TIERS[t].anchor; }
-
-/* ---------- 4 格收藏卡（1 格解鎖＋其餘上鎖） ---------- */
-function renderCollection(el, owned, won) {
-  el.innerHTML = '';
-  PACK_TIERS.forEach(function (t) {
-    var T = TIERS[t], open = owned.indexOf(t) >= 0;
-    var card = document.createElement('div');
-    card.className = 'collect-card ' + (open ? 'is-open' : 'is-locked') + (t === won ? ' is-won' : '');
-    var flag = t === won ? '・你抽中的獎' : (open ? '・已交換解鎖' : '');
-    var html = '<div class="cc-head"><span class="cc-tier">' + T.icon + ' ' + T.label + flag + '</span><b class="cc-title">' + T.title + '</b></div><div class="cc-actions">';
-    if (open) {
-      tierActions(t).forEach(function (a, i) {
-        html += '<a class="' + (i === 0 ? 'btn-gold' : 'btn-outline-gold') + '" href="' + a.href + '"' + (a.download ? ' download' : '') + (a.blank ? ' target="_blank" rel="noopener"' : '') + '>' + a.text + '</a>';
-      });
-    } else {
-      html += '<div class="cc-lock">' + LOCK_TEXT + '</div>';
-    }
-    card.innerHTML = html + '</div>';
-    el.appendChild(card);
-  });
-}
-
-/* ---------- 同桌交換暗號 ---------- */
 function copyText(text, statusEl, okMsg) {
   function done(ok) { statusEl.textContent = ok ? okMsg : '請長按上方文字手動複製。'; }
   function fallback() {
@@ -338,19 +416,85 @@ function copyText(text, statusEl, okMsg) {
   if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(text).then(function () { done(true); }).catch(fallback);
   else fallback();
 }
-function renderExchange(box, won, owned) {
-  var want = wantedTiers(won, owned);
-  if (won < 1 || !want.length) { box.style.display = 'none'; return; }
-  var text = exchangeText(won, owned);
+function renderExchange(s) {
+  var box = document.getElementById('exchangeBox');
+  if (!wantedTiers(s).length) { box.style.display = 'none'; return; }
+  var text = exchangeText(s), status = document.getElementById('exchangeStatus');
   box.style.display = 'block';
-  box.querySelector('#exchangePreview').textContent = text;
-  var status = box.querySelector('#exchangeStatus');
+  document.getElementById('exchangePreview').textContent = text;
   status.textContent = '';
-  box.querySelector('#copyExchangeBtn').onclick = function () { copyText(text, status, '✅ 交換暗號已複製！點下方按鈕打開 LINE 社群直接貼上。'); };
-  var share = box.querySelector('#copyShareBtn');
-  if (won === 1) { share.style.display = 'none'; return; }
-  share.style.display = '';
-  share.onclick = function () { copyText(shareUrl(won), status, '✅ 你的' + TIERS[won].label + '分享連結已複製，交換成功後貼給同桌即可開啟。'); };
+  var key = tierKey(s.rec.tier), row = document.getElementById('myKeyRow');
+  row.style.display = key ? '' : 'none';
+  document.getElementById('myKey').textContent = key;
+  document.getElementById('copyKeyBtn').style.display = key ? '' : 'none';
+  document.getElementById('copyExchangeBtn').onclick = function () { copyText(text, status, '✅ 交換暗號已複製！打開 LINE 社群貼上，談妥後再私訊對方您的專屬解鎖碼。'); };
+  document.getElementById('copyKeyBtn').onclick = function () { copyText(key, status, '✅ 專屬解鎖碼 ' + key + ' 已複製，請私訊給跟您交換的那位群友。'); };
+}
+
+/* ---------- 下方：五獎全圖鑑（只有已解鎖的卡片才放連結） ---------- */
+function renderDex(s) {
+  var n = s.unlocked.length, rest = ALL_TIERS.length - n;
+  document.getElementById('dexTitle').textContent = '📦 五獎盲盒全圖鑑（您已解鎖 ' + n + ' / 5 項' + (rest ? '，其餘 ' + rest + ' 項未解鎖' : '') + '）';
+  var grid = document.getElementById('dexGrid');
+  grid.innerHTML = '';
+  ALL_TIERS.forEach(function (t) {
+    var T = TIERS[t], open = s.unlocked.indexOf(t) >= 0, mine = t === s.rec.tier;
+    var card = document.createElement('div');
+    card.className = 'dex-card ' + (open ? 'is-open' : 'is-locked') + (mine ? ' is-won' : '');
+    var html = '<div class="dx-head"><span class="dx-tier">' + T.icon + ' ' + T.label + (mine ? '・您抽中的獎' : (open ? '・已交換解鎖' : '')) + '</span><b class="dx-title">' + T.title + '</b></div>';
+    if (open) {
+      html += '<div class="dx-status">✅ 已解鎖・點擊查看領取</div><div class="dx-actions">';
+      tierActions(t).forEach(function (a, i) { html += actionLink(a, i === 0 ? 'btn-gold' : 'btn-outline-gold'); });
+      html += '</div>';
+    } else if (t === 1) {
+      html += '<div class="dx-frost" aria-hidden="true"><i></i><i></i><i></i><span>🔒</span></div>' +
+        '<p class="dx-lock">🔒 尚未抽中此盲盒 — 頭獎限量 2 名，僅限抽中者本人憑證書領取，無法交換解鎖。</p>';
+    } else {
+      html += '<div class="dx-frost" aria-hidden="true"><i></i><i></i><i></i><span>🔒</span></div>' +
+        '<p class="dx-lock">🔒 尚未抽中此盲盒 — 請複製上方您的交換暗號，回 LINE「陳執董的商業社群」與抽中本獎的群友互換<b>專屬解鎖碼</b></p>' +
+        '<form class="dx-unlock" data-tier="' + t + '" novalidate><label class="dx-label" for="dxCode' + t + '">輸入群友交換給您的專屬解鎖碼</label>' +
+        '<div class="dx-row"><input id="dxCode' + t + '" class="dx-input" type="text" maxlength="24" autocomplete="off" autocapitalize="characters" spellcheck="false" placeholder="如 BNC-PDF-88"><button type="submit" class="dx-btn">解鎖此項</button></div>' +
+        '<p class="dx-msg" role="status" aria-live="polite"></p></form>';
+    }
+    card.innerHTML = html;
+    grid.appendChild(card);
+  });
+  grid.querySelectorAll('.dx-unlock').forEach(function (f) { f.addEventListener('submit', tryUnlock); });
+}
+function tryUnlock(e) {
+  e.preventDefault();
+  var f = e.currentTarget, t = +f.getAttribute('data-tier'), msg = f.querySelector('.dx-msg');
+  var v = normCode(f.querySelector('.dx-input').value), s = loadState();
+  if (!s) return;
+  if (!v) { msg.textContent = '請先輸入群友給您的專屬解鎖碼。'; return; }
+  if (v === tierKey(t)) {
+    if (s.unlocked.indexOf(t) < 0) s.unlocked.push(t);
+    saveState(s);
+    renderAll(s, false);
+    var card = document.querySelectorAll('#dexGrid .dex-card')[ALL_TIERS.indexOf(t)];
+    if (card) card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    return;
+  }
+  var other = PACK_TIERS.filter(function (x) { return x !== t && tierKey(x) === v; })[0];
+  msg.textContent = other
+    ? '這組是【' + TIERS[other].label + '】的解鎖碼，每組碼只解鎖對應的 1 項，請輸入到【' + TIERS[other].label + '】卡片。'
+    : '解鎖碼不正確，請向抽中【' + TIERS[t].label + '】的群友再確認一次。';
+}
+
+/* ---------- gift 頁：已解鎖的乾貨包才從 <template> 放進頁面 ---------- */
+function mountPackages(s) {
+  var mount = document.getElementById('pkgMount');
+  if (!mount) return;
+  mount.innerHTML = '';
+  s.unlocked.forEach(function (t) {
+    var tpl = TIERS[t].pkg && document.getElementById('pkgTpl' + TIERS[t].pkg);
+    if (tpl) mount.appendChild(tpl.content.cloneNode(true));
+  });
+}
+function renderAll(s, animate) {
+  renderWin(s, animate);
+  renderDex(s);
+  mountPackages(s);
 }
 
 /* ---------- 後台登記 ---------- */
@@ -364,9 +508,8 @@ function submitDraw(rec, source, page) {
   fd.append('priceApplied', '免費（LINE商業社群同桌專屬）');
   fd.append('name', rec.name);
   fd.append('email', rec.email);
-  if (rec.nick) fd.append('lineId', rec.nick);
   fd.append('source', source);
-  fd.append('note', '【五獎盲盒拉霸即抽即開】' + (rec.nick ? 'LINE暱稱：' + rec.nick + '｜' : '') + '抽中：' + prize + '｜僅解鎖此 1 獎，其餘乾貨包待回 LINE 社群與同桌交換解鎖');
+  fd.append('note', '【五獎盲盒拉霸 v3】抽中：' + prize + '｜僅解鎖此 1 獎，其餘獎項需與群友互換專屬解鎖碼逐項解鎖');
   fd.append('page', page);
   try { fetch(ENDPOINT, { method: 'POST', mode: 'no-cors', body: fd }).catch(function () {}); } catch (e) {}
 }
@@ -422,26 +565,18 @@ function confetti() {
   document.body.appendChild(box);
   setTimeout(function () { box.remove(); }, 5200);
 }
+function validLead(name, email) { return !!name && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email); }
 
-// 每一獎只對應自己的下載／閱讀按鈕。
-function tierActions(t) {
-  if (t === 2) return [
-    { text: '📘 開啟／下載 30 頁 PDF 旗艦版', href: GIFT_BASE + 'jump_super_individual_ai_team_handbook.pdf', blank: true }
-  ];
-  if (t === 3) return [
-    { text: '🤖 開啟 56 個職位全清單', href: GIFT_BASE + 'grokbot_10steps_56roles_zh.md', blank: true },
-    { text: '🧩 開啟 49 個繁中 AI 模板', href: GIFT_BASE + 'taiwan_sme_ai_org_templates_zh.md', blank: true }
-  ];
-  if (t === 4) return [{ text: '🧩 線上閱讀 12 人團隊配置清單', href: GIFT_BASE + '?pkg=2#package-two', blank: true }];
-  return [{ text: '🤝 線上閱讀破冰與跟進清單', href: GIFT_BASE + '?pkg=1#package-one', blank: true }];
-}
+purgeLegacy();
+document.getElementById('resetBtn').addEventListener('click', resetState);
 
+/* ---------- claude-draw 頁 ---------- */
 (function renderPrizes() {
   var grid = document.getElementById('prizeGrid'), html = '';
-  [1, 2, 3, 4, 5].forEach(function (t) {
+  ALL_TIERS.forEach(function (t) {
     var T = TIERS[t];
     var rate = t === 1 ? (jackpotLeft() > 0 ? '機率 4%・剩餘 ' + jackpotLeft() + ' 名' : '頭獎已全數送出') : '機率 ' + (jackpotLeft() > 0 ? '24%' : '25%');
-    var desc = t === 1 ? '給予 1 週 Pro 權限，抽中後截圖到陳執董的商業社群私訊小助領取。' : '當場解鎖這 1 份乾貨包。';
+    var desc = t === 1 ? '給予 1 週 Pro 權限，抽中後截圖到陳執董的商業社群私訊小助領取。' : '抽中才解鎖這 1 份乾貨包。';
     html += '<div class="prize-card' + (t === 1 ? ' jackpot' : '') + '"><div><b>' + T.icon + ' ' + T.label + '｜' + T.title + '</b>' + desc + '</div><span class="rate">' + rate + '</span></div>';
   });
   grid.innerHTML = html;
@@ -450,96 +585,53 @@ function tierActions(t) {
 var selfMachine = document.getElementById('selfMachine');
 idleReels(selfMachine);
 
-function showResult(rec, animate) {
-  var t = recTier(rec), owned = ownedTiers(rec), T = TIERS[t];
-  var card = document.getElementById('resultCard');
-  if (t === 0) {
-    document.getElementById('resultBadge').textContent = '🎁 早鳥同桌・乾貨包全數解鎖';
-    document.getElementById('resultTitle').textContent = '你在改版前參加，4 份乾貨包已全數為你保留';
-    document.getElementById('resultMsg').textContent = (rec.name || '同桌') + '，下面 4 張卡直接開啟閱讀或下載。';
-  } else {
-    document.getElementById('resultBadge').textContent = T.icon + ' ' + T.label + '・恭喜中獎';
-    document.getElementById('resultTitle').textContent = '你抽中【' + T.label + '】' + T.title + '！';
-    document.getElementById('resultMsg').textContent = t === 1
-      ? (rec.name || '同桌') + '，你是限量 2 名的頭獎得主！截圖下方證書到 LINE 社群領取；4 份乾貨包請回社群跟同桌交換集滿。'
-      : (rec.name || '同桌') + '，你的' + T.label + '已解鎖（下方金色卡片），另外 3 份乾貨包回 LINE 社群跟同桌交換解鎖。';
-  }
-  var jackpot = t === 1;
-  document.getElementById('jackpotBlock').style.display = jackpot ? 'block' : 'none';
-  card.classList.toggle('is-jackpot', jackpot);
-  if (jackpot) {
-    document.getElementById('certCode').textContent = rec.code;
-    document.getElementById('certMeta').textContent = [rec.nick, rec.email, rec.at].filter(Boolean).join('｜');
-    if (animate) confetti();
-  }
-  if (t > 0) {
-    idleReels(selfMachine, [T.sym, T.sym, T.sym]);
-    selfMachine.classList.add('win');
-  }
-  renderCollection(document.getElementById('collectGrid'), owned, t);
-  renderExchange(document.getElementById('exchangeBox'), t, owned);
-  card.style.display = 'block';
+function showResult(s, animate) {
+  var T = TIERS[s.rec.tier];
+  document.body.classList.remove('gate-locked');
+  idleReels(selfMachine, [T.sym, T.sym, T.sym]);
+  selfMachine.classList.add('win');
+  document.getElementById('resultCard').classList.toggle('is-jackpot', s.rec.tier === 1);
+  renderAll(s, animate);
+  document.getElementById('resultCard').style.display = 'block';
+  document.getElementById('realName').value = s.rec.name || '';
+  document.getElementById('drawEmail').value = s.rec.email || '';
   var btn = document.getElementById('spinBtn');
   btn.disabled = true;
-  btn.textContent = '你已完成本次拉霸（每個 Email 限抽一次）';
-  try {
-    localStorage.setItem('bnc_gift_lead_name', rec.name);
-    localStorage.setItem('bnc_gift_lead_email', rec.email);
-  } catch (e) {}
-  card.scrollIntoView({ behavior: animate ? 'smooth' : 'auto', block: 'start' });
+  btn.textContent = '您已完成本次拉霸（每台裝置限抽 1 次）';
+  document.getElementById('resultCard').scrollIntoView({ behavior: animate ? 'smooth' : 'auto', block: 'start' });
 }
 
 document.getElementById('drawForm').addEventListener('submit', function (e) {
   e.preventDefault();
   var err = document.getElementById('drawError');
-  var nick = document.getElementById('lineNick').value.trim();
   var name = document.getElementById('realName').value.trim();
   var email = document.getElementById('drawEmail').value.trim().toLowerCase();
   var fail = function (msg, el) { err.textContent = msg; err.style.display = 'block'; if (el) el.focus(); };
-  if (!nick) return fail('請填寫 LINE 社群暱稱。', document.getElementById('lineNick'));
-  if (!name) return fail('請填寫真實姓名或稱呼。', document.getElementById('realName'));
-  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return fail('請填寫正確的常用 Email。', document.getElementById('drawEmail'));
+  if (!name) return fail('請填寫您的稱呼。', document.getElementById('realName'));
+  if (!validLead(name, email)) return fail('請填寫正確的常用 Email。', document.getElementById('drawEmail'));
   err.style.display = 'none';
 
-  var store = loadStore();
-  var prev = store.draws[email] || store.device;
+  var prev = loadState();
   if (prev) {
-    fail(store.draws[email] ? '這個 Email 已經抽過囉，以下是你的開獎結果。' : '這台裝置已經抽過囉（每個 Email／裝置限抽一次），以下是先前的開獎結果。');
+    fail('這台裝置已經抽過囉（每台裝置限抽 1 次），以下是先前的開獎結果。');
     showResult(prev, false);
     return;
   }
-
-  var tier = drawTier();
-  var rec = { nick: nick, name: name, email: email, tier: tier, result: tier === 1 ? 'jackpot' : 'pack', code: tier === 1 ? certCode() : '', at: new Date().toLocaleString('zh-TW', { hour12: false }) };
+  var s = newDraw(name, email);
   // 先記錄再轉動：重新整理頁面也無法重抽。
-  store.draws[email] = rec;
-  store.device = rec;
-  saveStore(store);
-  submitDraw(rec, 'Claude Pro 五獎盲盒拉霸頁', location.href);
+  saveState(s);
+  submitDraw(s.rec, 'Claude Pro 五獎盲盒拉霸頁', location.href);
 
   var btn = document.getElementById('spinBtn');
   btn.disabled = true;
   btn.textContent = '🎰 拉霸轉動中…';
   selfMachine.scrollIntoView({ behavior: 'smooth', block: 'center' });
-  spinReels(selfMachine, TIERS[tier].sym, function () { showResult(rec, true); });
+  spinReels(selfMachine, TIERS[s.rec.tier].sym, function () { showResult(s, true); });
 });
 
 (function restore() {
-  var store = loadStore();
-  if (store.device) {
-    var r = store.device;
-    document.getElementById('lineNick').value = r.nick || '';
-    document.getElementById('realName').value = r.name || '';
-    document.getElementById('drawEmail').value = r.email || '';
-    showResult(r, false);
-    window.scrollTo(0, 0);
-    return;
-  }
-  try {
-    var n = localStorage.getItem('bnc_gift_lead_name'), m = localStorage.getItem('bnc_gift_lead_email');
-    if (n) document.getElementById('realName').value = n;
-    if (m) document.getElementById('drawEmail').value = m;
-  } catch (e) {}
+  var s = loadState();
+  if (s) { showResult(s, false); window.scrollTo(0, 0); }
 })();
 </script>
 </body>
