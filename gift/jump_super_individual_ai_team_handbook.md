@@ -602,7 +602,7 @@ https://line.me/ti/g2/7qQim1WtxNfE2pEp_WWH5THJNdgmu-qiC3qByg
 
 入群通關密碼：bnc888
 
-乾貨包入口：https://edjumptw.github.io/kma-kk/gift/
+乾貨包入口：https://edjumptw.github.io/jump-ai/gift/
 
 上述網址均來自 Jump 提供素材，未另行驗證目前群組容量、密碼效期與網站服務狀態。正式對外投放前，請用一般手機帳號確認可開啟。
 

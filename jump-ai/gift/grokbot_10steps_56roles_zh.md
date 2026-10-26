@@ -333,7 +333,7 @@ CI/CD 監看和相依套件稽核跑的也是同一套迴圈：讀取執行紀�
 
 - LINE 商業社群「陳執董的商業社群」：https://line.me/ti/g2/7qQim1WtxNfE2pEp_WWH5THJNdgmu-qiC3qByg
 - 入群通關密碼：bnc888
-- 同桌專屬乾貨包網頁：https://edjumptw.github.io/kma-kk/gift/（輸入同一組密碼 bnc888 即可解鎖）
+- 同桌專屬乾貨包網頁：https://edjumptw.github.io/jump-ai/gift/（輸入同一組密碼 bnc888 即可解鎖）
 
 進群之後，歡迎用三句話跟同桌打個招呼：怎麼稱呼、在哪個城市、目前做什麼產品或服務，以及現在最想交出去的一件雜事是什麼。
 

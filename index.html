@@ -1,0 +1,746 @@
+<!doctype html>
+<html lang="zh-Hant-TW">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>2026 Grok Bot 終極實戰教學：一人公司如何用「1 董秘＋4 部門」打造 12 人 AI 團隊｜陳執董的商業洞察</title>
+<meta name="description" content="從 0 到 1 搞懂 Grok Bot 下載安裝、繁體中文設定、方案定價比較、Grok Bot Marketplace 模板市集避坑，到陳執董（Jump）原創「1 董秘＋4 部門＋7 專員」12 人 AI 團隊架構。免費領取台灣 10 大行業 49 個繁體中文 AI 員工模板。">
+<meta property="og:title" content="2026 Grok Bot 終極實戰教學：一人公司如何打造 12 人 AI 團隊（附 49 個繁中模板免費領）">
+<meta property="og:description" content="不寫程式也能落地！完整拆解 Grok Bot 基礎設定、Marketplace 8 大類模板避坑，以及一人公司 1 董秘＋4 部門實戰配置。點開網址輸入「姓名＋Email」一秒解鎖 49 個繁中模板與配置手冊，並可抽 Claude Pro 一週免費體驗券（限量 2 名）。">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://edjumptw.github.io/jump-ai/">
+<meta property="og:image" content="https://edjumptw.github.io/jump-ai/static/og-jump-ai.png">
+<link rel="icon" type="image/png" href="https://edjumptw.github.io/jump-ai/static/favicon.png">
+<meta name="theme-color" content="#0b0d12">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg-deep: #0b0d12;
+  --bg-card: #141821;
+  --bg-card-alt: #1a202e;
+  --bg-highlight: rgba(212, 175, 55, 0.09);
+  --text-light: #f3f1ec;
+  --text-dim: #a8adbb;
+  --gold: #d4af37;
+  --gold-light: #f0d57b;
+  --gold-dark: #aa851c;
+  --accent: #06c755;
+  --accent-warm: #e05a2b;
+  --border-gold: rgba(212, 175, 55, 0.32);
+  --border-subtle: rgba(255, 255, 255, 0.1);
+  --radius: 16px;
+  --max: 860px;
+  --shadow-lg: 0 20px 50px rgba(0, 0, 0, 0.55);
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: "Noto Sans TC", system-ui, -apple-system, "PingFang TC", "Microsoft JhengHei", sans-serif;
+  background: radial-gradient(900px 480px at 80% -5%, rgba(212, 175, 55, 0.15), transparent 65%),
+              radial-gradient(700px 420px at 10% 15%, rgba(6, 199, 85, 0.08), transparent 60%),
+              var(--bg-deep);
+  color: var(--text-light);
+  line-height: 1.82;
+  font-size: 16.5px;
+  min-height: 100vh;
+  padding-bottom: 88px;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: var(--gold-light); text-decoration: underline; text-underline-offset: 3px; }
+.wrap { max-width: var(--max); margin: 0 auto; padding: 0 18px; }
+
+/* Sticky Topbar */
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(11, 13, 18, 0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border-subtle);
+}
+.topbar-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 60px;
+  gap: 10px;
+}
+.brand-title {
+  font-weight: 900;
+  font-size: 14.5px;
+  letter-spacing: 0.03em;
+  color: var(--gold-light);
+}
+.brand-sub {
+  font-size: 11.5px;
+  color: var(--text-dim);
+  display: block;
+}
+.top-cta {
+  font-size: 13px;
+  font-weight: 700;
+  color: #0b0d12;
+  background: linear-gradient(135deg, var(--gold-light), var(--gold));
+  text-decoration: none;
+  padding: 7px 14px;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+/* Hero Section */
+.hero {
+  padding: 40px 0 28px;
+  border-bottom: 1px solid var(--border-subtle);
+}
+.tag-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+.badge {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 4px 11px;
+  border-radius: 999px;
+  background: rgba(212, 175, 55, 0.15);
+  color: var(--gold-light);
+  border: 1px solid var(--border-gold);
+}
+.badge-green {
+  background: rgba(6, 199, 85, 0.15);
+  color: #4be38a;
+  border-color: rgba(6, 199, 85, 0.35);
+}
+.hero h1 {
+  font-size: clamp(24px, 5vw, 36px);
+  line-height: 1.32;
+  font-weight: 900;
+  margin-bottom: 16px;
+  color: #ffffff;
+}
+.hero-lead {
+  font-size: 17px;
+  color: var(--text-dim);
+  margin-bottom: 22px;
+}
+.author-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 14px 16px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 12px;
+  font-size: 13.5px;
+  color: var(--text-dim);
+}
+.author-bar strong { color: var(--text-light); }
+
+/* Quick TOC */
+.toc-box {
+  margin: 26px 0;
+  padding: 20px 22px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-gold);
+  border-radius: var(--radius);
+}
+.toc-title {
+  font-weight: 900;
+  font-size: 16px;
+  color: var(--gold-light);
+  margin-bottom: 10px;
+}
+.toc-list {
+  list-style: none;
+  display: grid;
+  gap: 8px;
+}
+.toc-list li a {
+  text-decoration: none;
+  color: var(--text-light);
+  font-size: 15px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.toc-list li a:hover { color: var(--gold-light); }
+
+/* Content Sections */
+.section-card {
+  margin: 30px 0;
+  padding: 26px 22px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius);
+}
+.section-card h2 {
+  font-size: clamp(20px, 4vw, 25px);
+  font-weight: 900;
+  color: var(--gold-light);
+  margin-bottom: 14px;
+  line-height: 1.38;
+  border-left: 4px solid var(--gold);
+  padding-left: 12px;
+}
+.section-card h3 {
+  font-size: 18.5px;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 22px 0 10px;
+}
+.section-card p { margin-bottom: 14px; }
+.section-card ul, .section-card ol {
+  padding-left: 22px;
+  margin-bottom: 16px;
+}
+.section-card li { margin-bottom: 9px; }
+.section-card li strong { color: var(--gold-light); }
+
+/* Copyable Prompt Box */
+.prompt-box {
+  background: #0d1017;
+  border: 1px solid var(--border-gold);
+  border-radius: 12px;
+  padding: 16px;
+  margin: 14px 0 18px;
+}
+.prompt-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 12.5px;
+  color: var(--gold-light);
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+.prompt-code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 14px;
+  color: #e9ecf2;
+  white-space: pre-wrap;
+  word-break: break-word;
+  line-height: 1.65;
+}
+.btn-copy-mini {
+  background: rgba(212, 175, 55, 0.18);
+  color: var(--gold-light);
+  border: 1px solid var(--border-gold);
+  border-radius: 6px;
+  padding: 4px 10px;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+/* Lead Magnet CTA Box */
+.gift-cta {
+  margin: 34px 0;
+  padding: 28px 22px;
+  background: linear-gradient(145deg, #171d2b, #10141e);
+  border: 2px solid var(--gold);
+  border-radius: 20px;
+  box-shadow: var(--shadow-lg);
+}
+.gift-cta h2 {
+  font-size: clamp(21px, 4.2vw, 27px);
+  font-weight: 900;
+  color: #ffffff;
+  margin-bottom: 12px;
+  line-height: 1.35;
+}
+.gift-list {
+  list-style: none;
+  margin: 16px 0 20px;
+  padding: 0;
+}
+.gift-list li {
+  padding: 10px 14px;
+  margin-bottom: 10px;
+  background: rgba(255, 255, 255, 0.04);
+  border-left: 3px solid var(--gold);
+  border-radius: 8px;
+  font-size: 15.5px;
+}
+.pwd-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 12px 16px;
+  background: rgba(212, 175, 55, 0.12);
+  border: 1px dashed var(--gold);
+  border-radius: 12px;
+  margin-bottom: 18px;
+}
+.pwd-code {
+  font-size: 20px;
+  font-weight: 900;
+  color: var(--gold-light);
+  letter-spacing: 0.08em;
+}
+.btn-row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+@media (min-width: 640px) {
+  .btn-row { grid-template-columns: 1fr; }
+}
+.btn-line {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: linear-gradient(135deg, #06c755, #05a847);
+  color: #ffffff;
+  font-weight: 900;
+  font-size: 16px;
+  text-decoration: none;
+  padding: 15px 20px;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 8px 24px rgba(6, 199, 85, 0.3);
+}
+.btn-gold {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: linear-gradient(135deg, var(--gold-light), var(--gold));
+  color: #0b0d12;
+  font-weight: 900;
+  font-size: 16px;
+  text-decoration: none;
+  padding: 15px 20px;
+  border-radius: 12px;
+  text-align: center;
+  border: none;
+  cursor: pointer;
+}
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  color: var(--gold-light);
+  border: 1px solid var(--gold);
+  font-weight: 700;
+  font-size: 14.5px;
+  text-decoration: none;
+  padding: 11px 16px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+/* Sticky Mobile Bottom Bar */
+.sticky-bottom {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 60;
+  background: rgba(14, 17, 24, 0.96);
+  backdrop-filter: blur(12px);
+  border-top: 1px solid var(--border-gold);
+  padding: 10px 16px;
+}
+.sticky-inner {
+  max-width: var(--max);
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+.sticky-text {
+  font-size: 13px;
+  line-height: 1.35;
+}
+.sticky-text strong { color: var(--gold-light); display: block; font-size: 14px; }
+.sticky-btn {
+  background: linear-gradient(135deg, #06c755, #05a847);
+  color: #fff;
+  font-weight: 900;
+  font-size: 13.5px;
+  text-decoration: none;
+  padding: 10px 16px;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+.ref-box {
+  margin: 32px 0 24px;
+  padding: 22px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius);
+  font-size: 13.5px;
+  color: var(--text-dim);
+}
+.ref-box h3 {
+  color: var(--gold-light);
+  font-size: 15.5px;
+  margin-bottom: 10px;
+}
+.ref-box li { margin-bottom: 6px; }
+.footer {
+  text-align: center;
+  padding: 24px 0 30px;
+  color: var(--text-dim);
+  font-size: 13px;
+  border-top: 1px solid var(--border-subtle);
+}
+
+/* STRICT VISUAL ALIGNMENT RULES (CSS Grid Equal-Height & Symmetric Centering) */
+.plan-grid, .compare-grid, .step-grid, .grid-2, .btn-row {
+  display: grid;
+  align-items: stretch;
+}
+.plan-card, .compare-box, .step-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  box-sizing: border-box;
+}
+.pwd-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+.btn-line, .btn-gold, .btn-outline {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+  box-sizing: border-box;
+}
+.sticky-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: auto;
+  flex-shrink: 0;
+  box-sizing: border-box;
+}
+.step-guide-box {
+  width: 100%;
+  box-sizing: border-box;
+  margin-top: 14px;
+  padding: 14px 18px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border-subtle);
+  border-radius: 12px;
+  text-align: center;
+  font-size: 14px;
+  color: var(--text-dim);
+  line-height: 1.75;
+}
+.pwd-bar .btn-outline {
+  width: auto;
+  flex-shrink: 0;
+}
+@media (max-width: 640px) {
+  .pwd-bar {
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+  }
+  .pwd-bar .btn-outline {
+    width: 100%;
+  }
+}
+
+/* ===== iPhone RWD (390x844, 375x667) ===== */
+html, body { overflow-x: hidden; }
+img, video, pre, table { max-width: 100%; }
+pre, code { white-space: pre-wrap; word-break: break-word; }
+.section-card a, .ref-box a, .gift-cta a { overflow-wrap: anywhere; }
+.top-cta { flex-shrink: 0; }
+.draw-link-row { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; align-items: stretch; margin-top: 12px; }
+.draw-link-row > a { height: 100%; }
+@media (max-width: 640px) {
+  .topbar-inner > div:first-child { min-width: 0; }
+  .topbar .brand-title, .topbar .brand-sub {
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 210px;
+  }
+  .topbar .top-link, .topbar .top-cta {
+    white-space: nowrap;
+    flex-shrink: 0;
+    padding: 8px 12px;
+    font-size: 13px;
+  }
+  .draw-link-row { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap topbar-inner">
+    <div>
+      <span class="brand-title">建橋雲智・國際人脈商業團隊</span>
+      <span class="brand-sub">陳執董（Jump）AI 實戰教學與同桌智庫</span>
+    </div>
+    <a class="top-cta" href="https://line.me/ti/g2/7qQim1WtxNfE2pEp_WWH5THJNdgmu-qiC3qByg" target="_blank" rel="noopener">加入 LINE 社群</a>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="hero">
+    <div class="tag-row">
+      <span class="badge">2026 台灣老闆實戰指南</span>
+      <span class="badge badge-green">免寫程式・手機好讀版</span>
+      <span class="badge">附 49 個繁中模板＋12 人團隊手冊</span>
+    </div>
+    <h1>2026 Grok Bot 終極實戰教學：一人公司如何用「1 董秘＋4 部門」打造 12 人 AI 團隊（含 Marketplace 模板市集避坑指南）</h1>
+    <p class="hero-lead">
+      為什麼別人用 AI 是請了 12 個全天候待命的部門主管，你用 AI 卻把自己變成最累的總機？這篇教學從 Grok Bot 基礎安裝、方案定價、Marketplace 8 大類模板市集，一路拆解到我每天實際運行的「1 董秘＋4 部門＋7 專員」一人公司實戰編制。文末可直接進 LINE 商業社群免費領取 49 個繁體中文化模板與完整配置手冊。
+    </p>
+    <div class="author-bar">
+      <div>撰文：<strong>陳執董（Jump）</strong>｜台灣行銷人協會理事長・建橋雲智創辦人</div>
+      <div>更新日期：2026 年 10 月 26 日（Asia/Taipei）</div>
+    </div>
+  </section>
+
+  <nav class="toc-box" aria-label="文章目錄">
+    <div class="toc-title">本文 4 大實戰重點（點擊可直接跳轉）</div>
+    <ol class="toc-list">
+      <li><a href="#part1">一、Grok Bot 是什麼？從下載安裝、中文時區設定到方案定價一次看懂</a></li>
+      <li><a href="#part2">二、Grok Bot Marketplace 模板市集 8 大分類與台灣老闆必看 3 大避坑守則</a></li>
+      <li><a href="#part3">三、不當最累總機！陳執董原創「1 董秘＋4 部門＋7 專員」12 人 AI 團隊實戰架構</a></li>
+      <li><a href="#claim-gift">四、免費領取：台灣中小企業 10 大行業 49 個繁體中文 AI 模板＋12 人配置手冊</a></li>
+    </ol>
+  </nav>
+
+  <!-- PART 1 -->
+  <article class="section-card" id="part1">
+    <h2>一、Grok Bot 是什麼？從下載安裝、中文時區設定到方案定價一次看懂</h2>
+    <p>
+      很多剛接觸 AI 的老闆常問我：「Grok Bot 跟我們平常開網頁聊天的 ChatGPT、Claude 或一般 Grok 有什麼不同？」
+    </p>
+    <p>
+      用最白話的方式講：<strong>一般聊天 AI 就像一個沒有辦公桌的臨時顧問</strong>，你問一句、它答一句，視窗關掉它就停了；而 <strong>Grok Bot 是擁有獨立雲端電腦、專屬角色記憶、外掛工具權限（Gmail、Google 行事曆、Notion、GitHub、X）與定時排程（Routines）的「AI 正式員工」</strong>。就算你把筆電合上、人在高鐵或咖啡廳，它的雲端排程一樣能照表幫你巡信箱、整裡名單、跑報表。
+    </p>
+
+    <h3>1. Grok Bot 方案定價怎麼選？新手需要直上最高規嗎？</h3>
+    <p>
+      Grok Bot 的使用資格可以透過 <strong>Cursor 訂閱</strong> 或 <strong>SuperGrok／X Premium+ 訂閱</strong> 取得。如果你是剛起步的新手，建議先用既有的入門方案跑通第一個自動化任務，不必第一天就買到頂規；等你像我一樣需要同時養 12 個 AI 員工日夜巡檢時，再依工作量升級即可：
+    </p>
+    <ul>
+      <li><strong>Cursor Pro（定價 US$20／月）</strong>：入門每週用量，直接以 Cursor 帳號登入即可啟動 Grok Bot，適合想用最低月費開始實測的一人公司。</li>
+      <li><strong>Cursor Pro+（定價 US$60／月）</strong>：用量高於 Pro，適合已經跑順 3 到 5 個日常排程的進階使用者。</li>
+      <li><strong>Cursor Ultra（定價 US$200／月）</strong>：Cursor 個人方案最高每週用量，適合需要搭建多部門 AI 團隊的重度實戰者。</li>
+      <li><strong>SuperGrok（定價 US$30／月）／SuperGrok Plus（定價 US$100／月）／SuperGrok Heavy（定價 US$300／月）</strong>：透過連結個人 Grok 帳號取得對應的 Bot 額度。</li>
+      <li><strong>X Premium+（台灣定價約 NT$1,309／月，美國定價 US$40／月）</strong>：本身有經營 X（Twitter）自媒體的老闆，可直接連結 X 帳號取得入門用量。</li>
+    </ul>
+    <p>
+      <strong>陳執董實戰省錢提醒（必看）</strong>：第一，Cursor 與 SuperGrok 的額度不會相加，連結帳號前請先確認主力帳號；第二，進入「設定 → 用量與帳單」時，新手請務必先確認<strong>「隨選每月限額（On-Demand）」沒有誤開</strong>，避免排程設太密而在背景超額計費。
+    </p>
+
+    <h3>2. 下載安裝與繁體中文、台灣時區（Asia/Taipei）設定</h3>
+    <ul>
+      <li><strong>電腦版下載</strong>：前往官方下載頁，Mac 請先看「關於這台 Mac」（M1–M4 晶片選 Apple silicon，舊款選 Intel）；Windows 請確認為 Windows 10／11（x64）。</li>
+      <li><strong>手機版同步指揮</strong>：iPhone 可於 App Store、Android 可於 Google Play 下載 Grok Bot（請認明是 Grok Bot 而非一般 Grok 聊天 App），登入同一個帳號即可在手機上隨時巡視電腦端 AI 員工的進度，不必重複付費。</li>
+      <li><strong>第一步必設「台灣時區」</strong>：打開「設定 → 一般」，將語言設為繁體中文，並往下確認 Bot 時區為 <code>Asia/Taipei</code>。這一步沒設對，你的每日早報跟行事曆提醒就會差 8 個小時。</li>
+    </ul>
+
+    <h3>3. 新手第一天就能跑通的 2 個安全練習指令（Gmail＋行事曆）</h3>
+    <p>
+      第一次連接 Gmail 與 Google Calendar 外掛時，很多老闆會擔心：「AI 會不會亂寄信或誤刪重要客戶信件？」關鍵在於<strong>第一道指令永遠先下「唯讀盤點、人工核對」</strong>。你可以直接複製下面兩段指令貼給你的 Grok Bot：
+    </p>
+    <div class="prompt-box">
+      <div class="prompt-head">
+        <span>練習指令 1：Gmail 帳單與重要信件安全盤點（不寄信、不刪信）</span>
+        <button type="button" class="btn-copy-mini" onclick="copyText('請把最近 3 天的 Gmail 分成「需要回覆、帳單與發票、一般通知、促銷」四類，每封用繁體中文列出一句重點與原信連結。先給我清單核對，嚴禁自動寄信或刪信。', this)">複製指令</button>
+      </div>
+      <div class="prompt-code">請把最近 3 天的 Gmail 分成「需要回覆、帳單與發票、一般通知、促銷」四類，每封用繁體中文列出一句重點與原信連結。先給我清單核對，嚴禁自動寄信或刪信。</div>
+    </div>
+
+    <div class="prompt-box">
+      <div class="prompt-head">
+        <span>練習指令 2：信用卡與廠商款項截止日自動寫入 Google 行事曆</span>
+        <button type="button" class="btn-copy-mini" onclick="copyText('請從已授權的 Gmail 找出最新帳單，列出廠商或銀行名稱、金額、繳款截止日與原信連結讓我核對。等我確認後，再於 Google Calendar 建立繳費提醒活動，時間設為截止日前一天 09:00（Asia/Taipei）。建立前先檢查是否重複，不代付款、不邀請其他人。', this)">複製指令</button>
+      </div>
+      <div class="prompt-code">請從已授權的 Gmail 找出最新帳單，列出廠商或銀行名稱、金額、繳款截止日與原信連結讓我核對。等我確認後，再於 Google Calendar 建立繳費提醒活動，時間設為截止日前一天 09:00（Asia/Taipei）。建立前先檢查是否重複，不代付款、不邀請其他人。</div>
+    </div>
+  </article>
+
+  <!-- MID-PAGE CTA -->
+  <section class="gift-cta" id="claim-gift-mid">
+    <span class="badge badge-green">同桌專屬免費乾貨包｜限時開放領取</span>
+    <h2>不想自己從零慢慢寫指令？直接領走我整理好的「49 個繁體中文 AI 員工模板＋12 人團隊手冊」</h2>
+    <p>
+      我看過太多老闆買了工具，結果卡在不知道怎麼寫角色設定跟部門交接規則。我直接把國外頂尖開源庫與我自己實測的「1 董秘＋4 部門」完整架構，全部翻成台灣老闆看得懂的繁體中文版，放在我的 LINE 商業社群「置頂記事本」裡讓你免費領取：
+    </p>
+    <ul class="gift-list">
+      <li><strong>禮物 1｜《台灣中小企業 10 大熱門行業：49 個現成 AI 員工模板實戰庫》</strong>（涵蓋餐飲門市、電商零售、知識講師、傳產製造、房仲保險、美業診所、顧問事務所等，複製即可套用）</li>
+      <li><strong>禮物 2｜《一人公司 12 人 AI 團隊（1 董秘＋4 部門＋7 專員）實戰配置手冊》</strong>（含 12 組直接可用的交辦 Prompt 與防呆驗收清單）</li>
+      <li><strong>禮物 3｜《商務社團 3 句話自然破冰與 72 小時黃金跟進清單》</strong>（把流量與名片真正變成生意的實戰話術）</li>
+    </ul>
+    <div class="pwd-bar">
+      <div>LINE 商業社群入群參加密碼：<span class="pwd-code">bnc888</span></div>
+      <button type="button" class="btn-outline" onclick="copyText('bnc888', this)">一鍵複製參加密碼 bnc888</button>
+    </div>
+    <div class="btn-row">
+      <a class="btn-line" href="https://line.me/ti/g2/7qQim1WtxNfE2pEp_WWH5THJNdgmu-qiC3qByg" target="_blank" rel="noopener">
+        點此加入 LINE「陳執董的商業社群」免費領取（參加密碼：bnc888）
+      </a>
+    </div>
+    <div class="step-guide-box">
+      <strong style="color:var(--gold-light);display:block;margin-bottom:4px;">領取兩步驟（入群秒領・系統自動寄信備份）</strong>
+      <div>Step 1：點擊上方綠色按鈕加入 LINE 商業社群（輸入參加密碼 <code>bnc888</code>）</div>
+      <div>Step 2：點開網址輸入「姓名 ＋ Email」，即可一秒解鎖三大乾貨包（系統同步寄送完整備份信到你信箱），並可立即抽「Claude Pro 一週免費體驗券（限量 2 名）」！</div>
+      <div class="draw-link-row">
+        <a class="btn-gold" href="https://edjumptw.github.io/jump-ai/gift/">打開乾貨包網頁（姓名＋Email 一秒解鎖）</a>
+        <a class="btn-outline" href="https://edjumptw.github.io/jump-ai/claude-draw/">🎰 立即抽 Claude Pro 一週體驗券</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PART 2 -->
+  <article class="section-card" id="part2">
+    <h2>二、Grok Bot Marketplace 模板市集 8 大分類與台灣老闆必看 3 大避坑守則</h2>
+    <p>
+      近期官方正式開放了 <strong>Grok Bot Marketplace（AI Agent 模板市集，入口：<code>https://x.ai/bot/marketplace</code>）</strong>，把工程開發（Engineering）、業務銷售（Sales）、行銷（Marketing）、設計（Design）、個人生活（Personal）、人資招募（Recruiting &amp; People）、產品管理（Product）與營運管理（Operations）等 8 大領域做成可一鍵匯入（Add / Import Bot）的現成隊友。
+    </p>
+    <p>
+      市集裡有幾個非常實用的官方與社群熱門角色，例如專門做關鍵字與內容規劃的 <strong>SEO &amp; AEO Desk</strong>、負責即時搜尋與事實查核的 <strong>Researchy</strong>、能把長影片抓出精華片段並上字幕的 <strong>Clip Bot</strong>、幫網頁與設計圖做視覺體檢的 <strong>Critiquito</strong>，以及幫團隊收斂需求規格的 <strong>PM Bot</strong>。
+    </p>
+
+    <h3>為什麼很多台灣老闆直接匯入市集模板，過三天就荒廢了？</h3>
+    <p>
+      我自己把官方市集與 GitHub 上超過 60 個開源模板全部拆開來實測後，發現台灣中小企業主直接套用外部模板最常踩到這 3 個大坑：
+    </p>
+    <ul>
+      <li><strong>第 1 坑｜全英文商業語境，不懂台灣本地商務規矩</strong>：國外模板預設寫的是英文冷開發信（Cold Email）跟 Slack，完全不懂台灣老闆每天在用的是 LINE 社群、官方帳號、企業微信、公司統編發票、勞動部與經濟部補助案，生出來的文案充滿濃濃的翻譯腔與 AI 味。</li>
+      <li><strong>第 2 坑｜一口氣裝了 10 個 Bot，結果老闆自己變成最累的「人肉總機」</strong>：這是最多人崩潰的地方。當你裝了 SEO Bot、剪片 Bot、客服 Bot、財報 Bot，每個 Bot 做完一半都跑來問你下一步，你每天光在 10 個視窗之間複製貼上就飽了。</li>
+      <li><strong>第 3 坑｜沒設「人工核准閘門」與權限檢查，資安與掉單風險極高</strong>：匯入第三方模板時，如果沒有先做唯讀安全檢查（Template Safety Checker），萬一排程在半夜卡在等待授權，或沒經過你點頭就直接對客戶發訊、改報價，出錯一次就會傷到商譽。</li>
+    </ul>
+  </article>
+
+  <!-- PART 3 -->
+  <article class="section-card" id="part3">
+    <h2>三、不當最累總機！陳執董原創「1 董秘＋4 部門＋7 專員」12 人 AI 團隊實戰架構</h2>
+    <p>
+      為了徹底解決「老闆自己當總機」跟「Token 額度燒太快」這兩個痛點，我在自己的一人公司裡，不是亂裝一堆零散的 Bot，而是直接照真實企業的組織圖，搭建了<strong>「三層指揮鏈＋本機 CLI 算力池＋Notion 戰情室」的 12 人 AI 團隊</strong>：
+    </p>
+    <ul>
+      <li><strong>第 1 層｜唯一單一窗口：董秘 Kinki（1 人）</strong>：我平常打開手機，只跟董秘一個人講話。董秘的鐵律是「100% 負責拆解任務、派工給四大部長並驗收結果，自己絕對不跳下去做苦工」，讓我永遠不會被十幾個視窗轟炸。</li>
+      <li><strong>第 2 層｜四大核心部門部長（4 人）</strong>：
+        <ul>
+          <li><strong>行政部長</strong>：管活動六階段SOP、報名名單核對、繳費對帳、發票統編與行前通知。</li>
+          <li><strong>營銷部長</strong>：管宣傳登陸頁、LINE／企業微信社群排程、Threads／X 潛在學員互動與渠道報名追蹤。</li>
+          <li><strong>自媒體部長</strong>：管全網爆款選題拆解、短影音腳本、Podcast 與多平台內容行事曆。</li>
+          <li><strong>變現部長</strong>：管企業 AI 代建置報價、BNC 商務媒合分潤、全台政府補助雷達與高客單名單跟進。</li>
+        </ul>
+      </li>
+      <li><strong>第 3 層｜七大執行專員（7 人）＋底層 CLI 算力池</strong>：四位部長底下再帶 7 位專員（差旅比價專員、搜尋雷達專員、社群監控專員、活動名單篩選專員、長片切片專員、去 AI 味潤稿專員、客戶背調專員）。遇到耗費大量算力的寫程式、長文撰寫或全網檢索，它們會自動在背景呼叫我原本就有訂的 Claude、Codex、Gemini 本機 CLI 去跑，把每分訂閱費榨到極致。</li>
+      <li><strong>最終匯流｜Notion 戰情室「只看兩欄、打勾裁決」</strong>：所有部門做完的長篇報告全部收進子頁面，每個部門主頁面只留「1. 各部門要匯報的事情」與「2. 我要裁決的事情（核取方塊）」。所有對外發文、私訊、報價，一律停在草稿等我打勾才准發出去。</li>
+    </ul>
+
+    <h3>台灣老闆最需要的「3 個黃金內建機制」（已收錄於社群乾貨包）</h3>
+    <ul>
+      <li><strong>機制 A｜The Walk-Away（陌生訪客跳出率毒舌診斷）</strong>：每次做好報名頁或銷售頁，先讓 AI 扮演「只有 15 秒耐心的挑剔台灣老闆」，找出前 3 秒看不懂價值、定價不清楚或按鈕太難找的致命點。</li>
+      <li><strong>機制 B｜Make It a 10（三分草稿變十分的雙重審查）</strong>：任何文案寫完先交給「去 AI 味潤稿專員」洗掉翻譯腔與廢話，再過一道繁體台灣用語驗收器（確保一律使用標準「定價」與「定金」商務用語，且絕不誇大承諾）。</li>
+      <li><strong>機制 C｜10 分鐘無人值守排程鐵律與 30 天斷捨離審計</strong>：所有半夜自動執行的排程（Routines），一律設計成「純讀取＋寫入草稿」，絕不觸發需要真人按核准的卡點；每滿 30 天自動盤點一次，砍掉沒帶來實際轉換的冗餘排程。</li>
+    </ul>
+  </article>
+
+  <!-- BOTTOM FINAL CTA -->
+  <section class="gift-cta" id="claim-gift">
+    <span class="badge">立即行動｜免費入群領取完整工具包</span>
+    <h2>現在就進 LINE「陳執董的商業社群」，免費領走 49 個繁中模板＋報名近期免費 AI 實戰分享會</h2>
+    <p>
+      不管你是剛下載 Grok Bot 的新手，還是想把現有團隊升級成「1 董秘＋4 部門」的一人公司老闆，我都把整套繁體中文化教材準備好了。點擊下方按鈕加入我的 LINE 商業社群（入群參加密碼 <code>bnc888</code>），看置頂記事本就能一次領齊：
+    </p>
+    <ul class="gift-list">
+      <li><strong>完整收錄 1</strong>：《建橋雲智：台灣中小企業 10 大熱門行業 AI 部門組織圖與 49 個現成模板實戰庫》</li>
+      <li><strong>完整收錄 2</strong>：《一人公司 12 人 AI 團隊（1 董秘＋4 部門＋7 專員）配置手冊與 12 組直接複製 Prompt》</li>
+      <li><strong>完整收錄 3</strong>：《商務社團 3 句話破冰與 72 小時黃金跟進清單》</li>
+      <li><strong>同桌專屬福利</strong>：優先免費參加陳執董自營之<strong>「線上 AI 實戰分享會（近期於群內優先公告）」</strong>與<strong>「高雄 4–6 人免費實體咖啡小聚」</strong>（100% 免費報名參加、不收任何定金，一起把人脈與 AI 工作流真正變成營收！）</li>
+    </ul>
+    <div class="pwd-bar">
+      <div>LINE 商業社群入群參加密碼：<span class="pwd-code">bnc888</span></div>
+      <button type="button" class="btn-outline" onclick="copyText('bnc888', this)">一鍵複製參加密碼 bnc888</button>
+    </div>
+    <div class="btn-row">
+      <a class="btn-line" href="https://line.me/ti/g2/7qQim1WtxNfE2pEp_WWH5THJNdgmu-qiC3qByg" target="_blank" rel="noopener">
+        點此加入 LINE「陳執董的商業社群」免費領取（參加密碼：bnc888）
+      </a>
+    </div>
+    <div class="step-guide-box">
+      <strong style="color:var(--gold-light);display:block;margin-bottom:4px;">領取兩步驟（入群秒領・系統自動寄信備份）</strong>
+      <div>Step 1：點擊上方綠色按鈕加入 LINE 商業社群（輸入參加密碼 <code>bnc888</code>）</div>
+      <div>Step 2：點開網址輸入「姓名 ＋ Email」，即可一秒解鎖三大乾貨包（系統同步寄送完整備份信到你信箱），並可立即抽「Claude Pro 一週免費體驗券（限量 2 名）」！</div>
+      <div class="draw-link-row">
+        <a class="btn-gold" href="https://edjumptw.github.io/jump-ai/gift/">打開乾貨包網頁（姓名＋Email 一秒解鎖）</a>
+        <a class="btn-outline" href="https://edjumptw.github.io/jump-ai/claude-draw/">🎰 立即抽 Claude Pro 一週體驗券</a>
+      </div>
+    </div>
+    <p id="copy-toast" style="margin-top:12px;font-size:13.5px;color:var(--gold-light);min-height:20px;text-align:center;width:100%;"></p>
+  </section>
+
+  <!-- ACADEMIC MULTI-SOURCE REFERENCES -->
+  <section class="ref-box" aria-label="參考文獻與延伸出處">
+    <h3>參考文獻與延伸出處（References &amp; Extended Sources）</h3>
+    <ol>
+      <li>[1] 陳執董（Jump），《BNI 高雄市南區智庫》，<a href="https://bnikaohsiung.blogspot.com/" target="_blank" rel="noopener">https://bnikaohsiung.blogspot.com/</a> 。</li>
+      <li>[2] Dr. Ivan Misner，《BNI Official Podcast》，<a href="https://www.bnipodcast.com/" target="_blank" rel="noopener">https://www.bnipodcast.com/</a> 。</li>
+      <li>[3] SpaceXAI / Grok Bot Official Documentation &amp; Grok Bot Marketplace（<a href="https://x.ai/bot/marketplace" target="_blank" rel="noopener">https://x.ai/bot/marketplace</a>），2026。</li>
+      <li>[4] 台灣繁體中文 AI 實測與工具教學社群彙編：Grenade 手榴彈《Grok Bot 新手教學：下載安裝、中文設定到 Gmail、行事曆自動化》（<a href="https://grenade.tw/blog/grok-bot-tutorial" target="_blank" rel="noopener">https://grenade.tw/blog/grok-bot-tutorial</a>）與《Grok Bot Marketplace 是什麼？8 大類 AI 隊友一鍵套用》（<a href="https://grenade.tw/blog/grok-bot-marketplace" target="_blank" rel="noopener">https://grenade.tw/blog/grok-bot-marketplace</a>），2026。</li>
+      <li>[5] GitHub 開源多代理組織圖與模板專案社群：<code>cobusgreyling/grok-bot-templates</code>、<code>serenakeyitan/agent-org-chart</code>、<code>Archive228/foreman</code>、<code>HAEGONG/grok-bot-profiles</code>、<code>Panniantong/Agent-Reach</code>，2026。</li>
+      <li>[6] 建橋雲智・國際人脈商業團隊，《陳執董（Jump）一人公司 12 人 AI 團隊（1 董秘＋4 部門＋7 專員）本機實測數據與 Notion 戰情室操作紀錄》，2026。</li>
+    </ol>
+  </section>
+
+  <footer class="footer">
+    建橋雲智・國際人脈商業團隊｜陳執董的商業社群（同桌專屬智庫）
+  </footer>
+</main>
+
+<div class="sticky-bottom">
+  <div class="sticky-inner">
+    <div class="sticky-text">
+      <strong>免費領 49 個繁中 AI 模板＋12 人團隊手冊</strong>
+      <span>入群密碼：bnc888｜近期開辦免費線上 AI 分享會</span>
+    </div>
+    <a class="sticky-btn" href="https://line.me/ti/g2/7qQim1WtxNfE2pEp_WWH5THJNdgmu-qiC3qByg" target="_blank" rel="noopener">立即進 LINE 群領取</a>
+  </div>
+</div>
+
+<script>
+function copyText(text, btn) {
+  var toast = document.getElementById('copy-toast');
+  var orig = btn ? btn.textContent : '';
+  function done() {
+    if (btn) { btn.textContent = '已複製！'; setTimeout(function(){ btn.textContent = orig; }, 2000); }
+    if (toast) { toast.textContent = '已複製到剪貼簿：' + text; }
+  }
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(text).then(done).catch(function(){
+      var ta = document.createElement('textarea'); ta.value = text; document.body.appendChild(ta); ta.select();
+      try { document.execCommand('copy'); done(); } catch(e) {}
+      ta.remove();
+    });
+  } else {
+    var ta = document.createElement('textarea'); ta.value = text; document.body.appendChild(ta); ta.select();
+    try { document.execCommand('copy'); done(); } catch(e) {}
+    ta.remove();
+  }
+}
+</script>
+</body>
+</html>

@@ -6,7 +6,7 @@
 <title>2026 Grok Bot 終極實戰教學：一人公司如何用「1 董秘＋4 部門」打造 12 人 AI 團隊｜陳執董的商業洞察</title>
 <meta name="description" content="從 0 到 1 搞懂 Grok Bot 下載安裝、繁體中文設定、方案定價比較、Grok Bot Marketplace 模板市集避坑，到陳執董（Jump）原創「1 董秘＋4 部門＋7 專員」12 人 AI 團隊架構。免費領取台灣 10 大行業 49 個繁體中文 AI 員工模板。">
 <meta property="og:title" content="2026 Grok Bot 終極實戰教學：一人公司如何打造 12 人 AI 團隊（附 49 個繁中模板免費領）">
-<meta property="og:description" content="不寫程式也能落地！完整拆解 Grok Bot 基礎設定、Marketplace 8 大類模板避坑，以及一人公司 1 董秘＋4 部門實戰配置。進 LINE 商業社群輸入 bnc888 免費領取 49 個繁中模板與配置手冊。">
+<meta property="og:description" content="不寫程式也能落地！完整拆解 Grok Bot 基礎設定、Marketplace 8 大類模板避坑，以及一人公司 1 董秘＋4 部門實戰配置。點開網址輸入「姓名＋Email」一秒解鎖 49 個繁中模板與配置手冊，並可抽 Claude Pro 一週免費體驗券（限量 2 名）。">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://edjumptw.github.io/jump-ai/">
 <meta property="og:image" content="https://edjumptw.github.io/jump-ai/static/og-jump-ai.png">
@@ -414,13 +414,35 @@ a { color: var(--gold-light); text-decoration: underline; text-underline-offset:
   justify-content: space-between;
   gap: 16px;
 }
-.btn-line, .btn-gold, .btn-outline, .sticky-btn {
-  display: inline-flex;
+.btn-line, .btn-gold, .btn-outline {
+  display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
   width: 100%;
   box-sizing: border-box;
+}
+.sticky-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: auto;
+  flex-shrink: 0;
+  box-sizing: border-box;
+}
+.step-guide-box {
+  width: 100%;
+  box-sizing: border-box;
+  margin-top: 14px;
+  padding: 14px 18px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border-subtle);
+  border-radius: 12px;
+  text-align: center;
+  font-size: 14px;
+  color: var(--text-dim);
+  line-height: 1.75;
 }
 .pwd-bar .btn-outline {
   width: auto;
@@ -436,6 +458,32 @@ a { color: var(--gold-light); text-decoration: underline; text-underline-offset:
     width: 100%;
   }
 }
+
+/* ===== iPhone RWD (390x844, 375x667) ===== */
+html, body { overflow-x: hidden; }
+img, video, pre, table { max-width: 100%; }
+pre, code { white-space: pre-wrap; word-break: break-word; }
+.section-card a, .ref-box a, .gift-cta a { overflow-wrap: anywhere; }
+.top-cta { flex-shrink: 0; }
+.draw-link-row { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; align-items: stretch; margin-top: 12px; }
+.draw-link-row > a { height: 100%; }
+@media (max-width: 640px) {
+  .topbar-inner > div:first-child { min-width: 0; }
+  .topbar .brand-title, .topbar .brand-sub {
+    display: block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 210px;
+  }
+  .topbar .top-link, .topbar .top-cta {
+    white-space: nowrap;
+    flex-shrink: 0;
+    padding: 8px 12px;
+    font-size: 13px;
+  }
+  .draw-link-row { grid-template-columns: 1fr; }
+}
 </style>
 </head>
 <body>
@@ -446,7 +494,7 @@ a { color: var(--gold-light); text-decoration: underline; text-underline-offset:
       <span class="brand-title">建橋雲智・國際人脈商業團隊</span>
       <span class="brand-sub">陳執董（Jump）AI 實戰教學與同桌智庫</span>
     </div>
-    <a class="top-cta" href="#claim-gift">免費領 49 個模板</a>
+    <a class="top-cta" href="https://line.me/ti/g2/7qQim1WtxNfE2pEp_WWH5THJNdgmu-qiC3qByg" target="_blank" rel="noopener">加入 LINE 社群</a>
   </div>
 </header>
 
@@ -551,9 +599,15 @@ a { color: var(--gold-light); text-decoration: underline; text-underline-offset:
         點此加入 LINE「陳執董的商業社群」免費領取（參加密碼：bnc888）
       </a>
     </div>
-    <p style="margin-top:12px;font-size:14px;color:var(--text-dim);line-height:1.7;">
-      <strong style="color:var(--gold-light);">領取兩步驟：</strong>Step 1 點擊上方綠色按鈕加入 LINE 商業社群（輸入參加密碼 <code>bnc888</code>） → Step 2 進群後點開右上角「置頂記事本」內的專屬禮物頁連結，輸入稱呼＋常用 Email 即可一鍵解鎖三大乾貨包與 49 個繁中模板（並自動寄送永久連結至您的信箱）！
-    </p>
+    <div class="step-guide-box">
+      <strong style="color:var(--gold-light);display:block;margin-bottom:4px;">領取兩步驟（入群秒領・系統自動寄信備份）</strong>
+      <div>Step 1：點擊上方綠色按鈕加入 LINE 商業社群（輸入參加密碼 <code>bnc888</code>）</div>
+      <div>Step 2：點開網址輸入「姓名 ＋ Email」，即可一秒解鎖三大乾貨包（系統同步寄送完整備份信到你信箱），並可立即抽「Claude Pro 一週免費體驗券（限量 2 名）」！</div>
+      <div class="draw-link-row">
+        <a class="btn-gold" href="https://edjumptw.github.io/jump-ai/gift/">打開乾貨包網頁（姓名＋Email 一秒解鎖）</a>
+        <a class="btn-outline" href="https://edjumptw.github.io/jump-ai/claude-draw/">🎰 立即抽 Claude Pro 一週體驗券</a>
+      </div>
+    </div>
   </section>
 
   <!-- PART 2 -->
@@ -610,7 +664,7 @@ a { color: var(--gold-light); text-decoration: underline; text-underline-offset:
     <span class="badge">立即行動｜免費入群領取完整工具包</span>
     <h2>現在就進 LINE「陳執董的商業社群」，免費領走 49 個繁中模板＋報名近期免費 AI 實戰分享會</h2>
     <p>
-      不管你是剛下載 Grok Bot 的新手，還是想把現有團隊升級成「1 董秘＋4 部門」的一人公司老闆，我都把整套繁體中文化教材準備好了。點擊下方按鈕加入我的 LINE 商業社群（入群通關密碼 <code>bnc888</code>），看置頂記事本就能一次領齊：
+      不管你是剛下載 Grok Bot 的新手，還是想把現有團隊升級成「1 董秘＋4 部門」的一人公司老闆，我都把整套繁體中文化教材準備好了。點擊下方按鈕加入我的 LINE 商業社群（入群參加密碼 <code>bnc888</code>），看置頂記事本就能一次領齊：
     </p>
     <ul class="gift-list">
       <li><strong>完整收錄 1</strong>：《建橋雲智：台灣中小企業 10 大熱門行業 AI 部門組織圖與 49 個現成模板實戰庫》</li>
@@ -627,10 +681,16 @@ a { color: var(--gold-light); text-decoration: underline; text-underline-offset:
         點此加入 LINE「陳執董的商業社群」免費領取（參加密碼：bnc888）
       </a>
     </div>
-    <p style="margin-top:12px;font-size:14px;color:var(--text-dim);line-height:1.7;">
-      <strong style="color:var(--gold-light);">領取兩步驟：</strong>Step 1 點擊上方綠色按鈕加入 LINE 商業社群（輸入參加密碼 <code>bnc888</code>） → Step 2 進群後點開右上角「置頂記事本」內的專屬禮物頁連結，輸入稱呼＋常用 Email 即可一鍵解鎖閱讀、下載 30 頁 PDF 手冊與 49 個繁中模板，系統並會自動寄送永久保存連結至您的信箱！
-    </p>
-    <p id="copy-toast" style="margin-top:12px;font-size:13.5px;color:var(--gold-light);min-height:20px;"></p>
+    <div class="step-guide-box">
+      <strong style="color:var(--gold-light);display:block;margin-bottom:4px;">領取兩步驟（入群秒領・系統自動寄信備份）</strong>
+      <div>Step 1：點擊上方綠色按鈕加入 LINE 商業社群（輸入參加密碼 <code>bnc888</code>）</div>
+      <div>Step 2：點開網址輸入「姓名 ＋ Email」，即可一秒解鎖三大乾貨包（系統同步寄送完整備份信到你信箱），並可立即抽「Claude Pro 一週免費體驗券（限量 2 名）」！</div>
+      <div class="draw-link-row">
+        <a class="btn-gold" href="https://edjumptw.github.io/jump-ai/gift/">打開乾貨包網頁（姓名＋Email 一秒解鎖）</a>
+        <a class="btn-outline" href="https://edjumptw.github.io/jump-ai/claude-draw/">🎰 立即抽 Claude Pro 一週體驗券</a>
+      </div>
+    </div>
+    <p id="copy-toast" style="margin-top:12px;font-size:13.5px;color:var(--gold-light);min-height:20px;text-align:center;width:100%;"></p>
   </section>
 
   <!-- ACADEMIC MULTI-SOURCE REFERENCES -->
