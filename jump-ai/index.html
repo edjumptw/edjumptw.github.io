@@ -289,7 +289,7 @@ a { color: var(--gold-light); text-decoration: underline; text-underline-offset:
   gap: 12px;
 }
 @media (min-width: 640px) {
-  .btn-row { grid-template-columns: 1fr 1fr; }
+  .btn-row { grid-template-columns: 1fr; }
 }
 .btn-line {
   display: inline-flex;
@@ -394,6 +394,47 @@ a { color: var(--gold-light); text-decoration: underline; text-underline-offset:
   color: var(--text-dim);
   font-size: 13px;
   border-top: 1px solid var(--border-subtle);
+}
+
+/* STRICT VISUAL ALIGNMENT RULES (CSS Grid Equal-Height & Symmetric Centering) */
+.plan-grid, .compare-grid, .step-grid, .grid-2, .btn-row {
+  display: grid;
+  align-items: stretch;
+}
+.plan-card, .compare-box, .step-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  box-sizing: border-box;
+}
+.pwd-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+.btn-line, .btn-gold, .btn-outline, .sticky-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+  box-sizing: border-box;
+}
+.pwd-bar .btn-outline {
+  width: auto;
+  flex-shrink: 0;
+}
+@media (max-width: 640px) {
+  .pwd-bar {
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+  }
+  .pwd-bar .btn-outline {
+    width: 100%;
+  }
 }
 </style>
 </head>
