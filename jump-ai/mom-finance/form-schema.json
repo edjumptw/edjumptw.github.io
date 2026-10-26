@@ -1,0 +1,429 @@
+[
+  {
+    "id": 410971006,
+    "title": "💰 課程四大核心",
+    "description": "\n▪️ 金錢觀念建立：培養健康的金錢觀，提升家庭財務規劃能力。\n▪️ 親子財商教育：將理財融入生活，陪伴孩子建立正確的金錢觀。\n▪️ 家庭理財實踐：從生活出發，逐步建立適合自己的家庭理財計畫。",
+    "google_type": 1,
+    "entries": [
+      {
+        "name": "entry.1764732291",
+        "required": false,
+        "options": []
+      }
+    ]
+  },
+  {
+    "id": 1718082830,
+    "title": "勞動部推出的「婦女再就業計畫」主要協助因各種因素退出勞動市場180日以上的婦女重返職場。 計畫提供三大核心獎勵措施https://www.mol.gov.tw/1607/1632/1633/89893/",
+    "description": "有資格申請問題  請洽:蔣小姐0960-686-013",
+    "google_type": 8,
+    "entries": []
+  },
+  {
+    "id": 1881755435,
+    "title": "請選擇梯次",
+    "description": null,
+    "google_type": 4,
+    "entries": [
+      {
+        "name": "entry.573868466",
+        "required": false,
+        "options": [
+          {
+            "value": "高雄場 12/3（週四）12:30-16:30、12/5（週五）12:30-16:30(高雄市三民區鼎愛街99號)",
+            "other": false
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 1112877548,
+    "title": "姓名",
+    "description": null,
+    "google_type": 0,
+    "entries": [
+      {
+        "name": "entry.146010389",
+        "required": true,
+        "options": []
+      }
+    ]
+  },
+  {
+    "id": 210268467,
+    "title": "Line ID",
+    "description": null,
+    "google_type": 0,
+    "entries": [
+      {
+        "name": "entry.1567717786",
+        "required": true,
+        "options": []
+      }
+    ]
+  },
+  {
+    "id": 1268066774,
+    "title": "生日（民國年/月/日）",
+    "description": null,
+    "google_type": 0,
+    "entries": [
+      {
+        "name": "entry.268294919",
+        "required": true,
+        "options": []
+      }
+    ]
+  },
+  {
+    "id": 1605907993,
+    "title": "手機號碼",
+    "description": null,
+    "google_type": 0,
+    "entries": [
+      {
+        "name": "entry.530763267",
+        "required": true,
+        "options": []
+      }
+    ]
+  },
+  {
+    "id": 74544139,
+    "title": "身份證字號",
+    "description": null,
+    "google_type": 0,
+    "entries": [
+      {
+        "name": "entry.303872215",
+        "required": true,
+        "options": []
+      }
+    ]
+  },
+  {
+    "id": 1926866980,
+    "title": "通訊地址",
+    "description": null,
+    "google_type": 0,
+    "entries": [
+      {
+        "name": "entry.394769869",
+        "required": true,
+        "options": []
+      }
+    ]
+  },
+  {
+    "id": 808251120,
+    "title": "常用E-mail",
+    "description": null,
+    "google_type": 0,
+    "entries": [
+      {
+        "name": "entry.1383554765",
+        "required": true,
+        "options": []
+      }
+    ]
+  },
+  {
+    "id": 686215099,
+    "title": "最高學歷（學校/科系）",
+    "description": null,
+    "google_type": 0,
+    "entries": [
+      {
+        "name": "entry.385237296",
+        "required": true,
+        "options": []
+      }
+    ]
+  },
+  {
+    "id": 1935959928,
+    "title": "工作經歷 (任職機構、職稱、工作期間）",
+    "description": "請提供有公司投保的工作。例如：XX公司 銷售助理 110.01-112.05",
+    "google_type": 0,
+    "entries": [
+      {
+        "name": "entry.250654745",
+        "required": true,
+        "options": []
+      }
+    ]
+  },
+  {
+    "id": 1034844499,
+    "title": "邀請人",
+    "description": null,
+    "google_type": 2,
+    "entries": [
+      {
+        "name": "entry.185945708",
+        "required": true,
+        "options": [
+          {
+            "value": "真光教會",
+            "other": false
+          },
+          {
+            "value": "潘以樂老師",
+            "other": false
+          },
+          {
+            "value": "蔣夢妮",
+            "other": false
+          },
+          {
+            "value": "",
+            "other": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 981732496,
+    "title": "退出職場背景 (當初為什麼沒工作？)",
+    "description": null,
+    "google_type": 4,
+    "entries": [
+      {
+        "name": "entry.1346673618",
+        "required": true,
+        "options": [
+          {
+            "value": "照顧子女",
+            "other": false
+          },
+          {
+            "value": "料理家務",
+            "other": false
+          },
+          {
+            "value": "照顧長輩（65歲以上）",
+            "other": false
+          },
+          {
+            "value": "結婚",
+            "other": false
+          },
+          {
+            "value": "退休",
+            "other": false
+          },
+          {
+            "value": "傷病或健康不良",
+            "other": false
+          },
+          {
+            "value": "工作場所業務緊縮或歇業",
+            "other": false
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 775283329,
+    "title": "妳認為自己具備哪些專長？ (可複選)",
+    "description": null,
+    "google_type": 4,
+    "entries": [
+      {
+        "name": "entry.471657052",
+        "required": true,
+        "options": [
+          {
+            "value": "行銷推廣",
+            "other": false
+          },
+          {
+            "value": "金融理財",
+            "other": false
+          },
+          {
+            "value": "行政文書",
+            "other": false
+          },
+          {
+            "value": "美容保養",
+            "other": false
+          },
+          {
+            "value": "業務溝通",
+            "other": false
+          },
+          {
+            "value": "保健營養",
+            "other": false
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 1229517086,
+    "title": "待業期間，您如何「自我提升」",
+    "description": null,
+    "google_type": 4,
+    "entries": [
+      {
+        "name": "entry.503555123",
+        "required": true,
+        "options": [
+          {
+            "value": "在網路(YouTube等)觀看教學影片",
+            "other": false
+          },
+          {
+            "value": "閱讀相關書籍",
+            "other": false
+          },
+          {
+            "value": "參加短期培訓",
+            "other": false
+          },
+          {
+            "value": "沒有特別準備，但對此領域有興趣",
+            "other": false
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 1239647737,
+    "title": "參加本次自主訓練的核心目的是？",
+    "description": null,
+    "google_type": 4,
+    "entries": [
+      {
+        "name": "entry.1466027734",
+        "required": true,
+        "options": [
+          {
+            "value": "幫助家庭親子溝通",
+            "other": false
+          },
+          {
+            "value": "學習專長，斜槓相關領域",
+            "other": false
+          },
+          {
+            "value": "學習專業，重返職場",
+            "other": false
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 796818369,
+    "title": "家庭照護需求如何解決？",
+    "description": null,
+    "google_type": 4,
+    "entries": [
+      {
+        "name": "entry.388727851",
+        "required": true,
+        "options": [
+          {
+            "value": "小孩已經長大入學，可全心投入",
+            "other": false
+          },
+          {
+            "value": "已完成家務分工，不影響受訓與復職",
+            "other": false
+          },
+          {
+            "value": "家中長輩已有看護或機構照顧",
+            "other": false
+          },
+          {
+            "value": "已與家人協調好輪流分擔",
+            "other": false
+          },
+          {
+            "value": "",
+            "other": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 1441660985,
+    "title": "目前孩子幾年級?",
+    "description": null,
+    "google_type": 8,
+    "entries": []
+  },
+  {
+    "id": 874707808,
+    "title": "交通工具",
+    "description": null,
+    "google_type": 4,
+    "entries": [
+      {
+        "name": "entry.1661215186",
+        "required": true,
+        "options": [
+          {
+            "value": "汽車",
+            "other": false
+          },
+          {
+            "value": "機車",
+            "other": false
+          },
+          {
+            "value": "大眾運輸",
+            "other": false
+          },
+          {
+            "value": "",
+            "other": true
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 1343585355,
+    "title": "便當",
+    "description": null,
+    "google_type": 4,
+    "entries": [
+      {
+        "name": "entry.77269828",
+        "required": true,
+        "options": [
+          {
+            "value": "葷",
+            "other": false
+          },
+          {
+            "value": "素",
+            "other": false
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 30733509,
+    "title": "填完資料後，幫我加入課程群組 https://line.me/ti/g/BsSGYH8xff",
+    "description": null,
+    "google_type": 1,
+    "entries": [
+      {
+        "name": "entry.575357804",
+        "required": false,
+        "options": []
+      }
+    ]
+  }
+]

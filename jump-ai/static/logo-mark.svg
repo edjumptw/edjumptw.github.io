@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="40 30 590 615" width="590" height="615"><defs>
+<linearGradient id="gBar" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#93d86b"/><stop offset="1" stop-color="#4597ad"/></linearGradient>
+<linearGradient id="gArm" x1="143" y1="250" x2="340" y2="80" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#4c9f9c"/><stop offset="1" stop-color="#8fd76d"/></linearGradient>
+<linearGradient id="gSm" x1="200" y1="510" x2="275" y2="430" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#8fd76d"/><stop offset="1" stop-color="#5bb487"/></linearGradient>
+</defs>
+<g>
+<rect x="60" y="45" width="83" height="580" fill="url(#gBar)"/>
+<polygon points="143,218 310,52 366,108 199,275 143,275" fill="url(#gArm)"/>
+<polygon points="190,457 232,415 280,463 238,505" fill="url(#gSm)"/>
+<polygon points="143,405 250,500 196,560 143,512" fill="#357767"/>
+<polygon points="88,275 145,218 512,585 435,622" fill="#357767"/>
+<polygon points="295,275 518,52 575,109 410,274 600,464 522,506" fill="#357767"/>
+<circle cx="553" cy="271" r="54" fill="#88d06f"/>
+</g></svg>
